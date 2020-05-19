@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Route;
 class RouteServiceProvider extends ServiceProvider
 {
     /**
-     * This namespace is applied to your controller routes.
+     * This namespace is applied to the controller routes in your routes file.
      *
      * In addition, it is set as the URL generator's root namespace.
      *
@@ -22,10 +22,11 @@ class RouteServiceProvider extends ServiceProvider
      * @var string
      */
     public const HOME = '/home';
-
+    
     /**
      * Define your route model bindings, pattern filters, etc.
      *
+     * @param  \Illuminate\Routing\Router  $router
      * @return void
      */
     public function boot()
@@ -38,6 +39,7 @@ class RouteServiceProvider extends ServiceProvider
     /**
      * Define the routes for the application.
      *
+     * @param  \Illuminate\Routing\Router  $router
      * @return void
      */
     public function map()

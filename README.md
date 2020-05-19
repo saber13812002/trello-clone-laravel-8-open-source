@@ -62,8 +62,15 @@ We would like to extend our thanks to the following sponsors for funding Laravel
 - [OP.GG](https://op.gg)
 - [云软科技](http://www.yunruan.ltd/)
 
-## Contributing
+## Installation
+You can install using the following way:
+- Clone the project git clone `git@github.com:zeeshanu/dingo-project-management.git`
+- Run `composer install` inside the directory composer install
+- Create database and run migrations `php artisan migrate`
+- Run the server `php artisan serve`
 
+
+## Contributing
 Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
 
 ## Code of Conduct

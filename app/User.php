@@ -2,38 +2,44 @@
 
 namespace App;
 
-use Illuminate\Contracts\Auth\MustVerifyEmail;
-use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
+use Illuminate\Auth\Authenticatable;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Auth\Passwords\CanResetPassword;
+use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
+use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
 
-class User extends Authenticatable
+class User extends Model implements AuthenticatableContract, CanResetPasswordContract
 {
-    use Notifiable;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
+    use Authenticatable, CanResetPassword;
+
+    protected $table = 'users';
+
     protected $fillable = [
         'name', 'email', 'password',
     ];
 
-    /**
-     * The attributes that should be hidden for arrays.
-     *
-     * @var array
-     */
     protected $hidden = [
         'password', 'remember_token',
     ];
 
     /**
-     * The attributes that should be cast to native types.
-     *
-     * @var array
+     * Finds the user by email
+     * @param  string $email Email of the user
+     * @return User
      */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];
+    public function findByEmail($email) 
+    {
+        return $this->where('email', $email)->first();
+    }
+
+    public function createUserAccount($input)
+    {
+        $this->create([
+            'name'     => $input->get('name'),
+            'email'    => $input->get('email'),
+            'password' => \Hash::make($input->get('password')),
+        ]);
+        return true;
+    }
 }
