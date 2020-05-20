@@ -20,6 +20,7 @@
                         <h4 class="media-heading" style="text-transform: capitalize; font-weight: bold;">{{ Auth::user()->name }}</h4>
                         <p><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> {{ Auth::user()->email }}</p>
                         <p><span class="glyphicon glyphicon-time" aria-hidden="true"></span> عضو از تاریخ {{ Carbon\Carbon::parse(Auth::user()->created_at)->toFormattedDateString() }}</p>
+                        <p><span class="glyphicon glyphicon-time" aria-hidden="true"></span> عضو از تاریخ {{ verta(Auth::user()->created_at) }}</p>
                     </div>
                 </div>
             </li>
