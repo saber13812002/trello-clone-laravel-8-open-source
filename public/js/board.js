@@ -890,7 +890,7 @@ $(document).ready(function() {
                                         '</div>'+
                                     '</ul>'+
                                     '<a href="#" class="show-input-field">کارت جدید...</a>'+
-                                    '<form action="" method="POST" role="form" style="display: none;">@csrf'+
+                                    '<form action="" method="POST" role="form" style="display: none;">'+
                                         '<div class="form-group" id="dynamic-board-input-con" style="margin-bottom: 8px;">'+
                                             '<textarea name="card-title" class="form-control" rows="3"></textarea>'+
                                             '<input type="hidden" name="list_id" value="' + data.id + '">'+

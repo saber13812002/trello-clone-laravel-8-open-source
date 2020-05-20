@@ -28,6 +28,8 @@
                                 <div class="media-body" style="padding-left: 15px; padding-top: 1px;">
                                     <p style="margin-bottom: 1px;"><b><span style="text-transform: capitalize;">{{ Auth::user()->name }}</span></b> @if($activity->activity_description == "created a board") created a board @elseif($activity->activity_description == "un-fav a board") Un Favourite a board @elseif($activity->activity_description == "fav a board") Favourite a board @elseif($activity->activity_description == "created a list") created a list @elseif($activity->activity_description == "deleted a list") Deleted a list @elseif($activity->activity_description == "created a card") Created a Card @elseif($activity->activity_description == "deleted a card") Deleted a Card @elseif($activity->activity_description == "edit list name") Edit List Name @elseif($activity->activity_description == "deleted a list") Deleted a List @elseif($activity->activity_description == "card is edited") Edit the Card @elseif($activity->activity_description == "task is added") Added a task @elseif($activity->activity_description == "task is deleted") Task is Deleted @elseif($activity->activity_description == "posted a comment") Posted a Comment on a card @endif  </p>
                                     <p style="margin-bottom: 1px;"><span class="glyphicon glyphicon-time" aria-hidden="true"></span> {{ Carbon\Carbon::parse($activity->created_at)->toDayDateTimeString() }}</p>
+                                    <p style="margin-bottom: 1px;"><span class="glyphicon glyphicon-time" aria-hidden="true"></span> {{ verta($activity->created_at) }}</p>
+
                                 </div>
                             </div>
                         </li>
