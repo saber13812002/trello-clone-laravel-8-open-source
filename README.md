@@ -7,6 +7,36 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
 </p>
 
+
+# A full-featured personal project management tool with task boards.
+
+## create new board then create new card
+
+![](demo-trello-new-card.gif)
+
+## Installation
+You can install using the following way:
+- Clone the project git clone `git@github.com:zeeshanu/dingo-project-management.git`
+- Run `composer install` inside the directory composer install
+- Create database and run migrations `php artisan migrate`
+- Run the server `php artisan serve`
+
+### create new card and set color to cards and tags
+
+![](demo-card-color-and-tag.gif)
+
+
+### set card details and subtasks
+
+![](demo-card-details-subtask.gif)
+
+
+### add comments to it and interact with other teammates
+
+![](demo-card-comments.gif)
+
+
+
 ## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
