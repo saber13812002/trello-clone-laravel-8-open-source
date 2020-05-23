@@ -16,12 +16,26 @@
 
 ## Installation
 You can install using the following way:
-- Clone the project git clone `git@github.com:zeeshanu/dingo-project-management.git`
+- Clone the project git clone `git@github.com:saber13812002/trello-clone-laravel-7-taskulu-open-source.git`
 - Run `composer install` inside the directory composer install
 - Create database and run migrations `php artisan migrate`
 - Run the server `php artisan serve`
 
 ### create new card and set color to cards and tags
+
+## Features:
+
+ - Register user 
+ - Login user
+ - Create Board
+ - Change Language ( and you can add your language file)
+ - Admin panel ( laravel-admin.org )
+ - Voyager admin panel ( second level admin panel )
+ - statistics in admin panel as charts
+ - create cards
+ - add tags and comments and description and checklist to the cards
+ - Support Jalali calendar and gerigorian calendar and Hijri Calendar
+ - new features here: [ branches ](https://github.com/saber13812002/trello-clone-laravel-7-taskulu-open-source/branches)
 
 ![](demo-card-color-and-tag.gif)
 
