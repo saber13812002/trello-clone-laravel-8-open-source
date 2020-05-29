@@ -18,7 +18,7 @@ class CreateBoardListTable extends Migration
             $table->integer('user_id')->unsigned();
             $table->foreign('board_id')->references('id')->on('board')->onDelete('cascade');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->string('list_name')->unique();
+            $table->string('list_name');
             $table->timestamps();
         });
     }

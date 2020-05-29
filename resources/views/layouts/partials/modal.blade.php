@@ -7,7 +7,7 @@
             </div>
             <div class="modal-body">
                 <form action="" method="POST" role="form" class="create-board-form">
-                @csrf
+                    @csrf
                     <div class="form-group" id="boardTitleCon">
                         <label for="title" class="control-label">عنوان</label>
                         <input type="text" class="form-control" id="boardTitle" name="boardName">
@@ -18,6 +18,8 @@
                             گروه اجازه میده که شما کارها و بورد های گروه رو ببینید به نظر میرسه شما عضو هیچ گروهی نیستید <a data-toggle="modal" href='#create-team'>یک گروه بسازید</a>.
                         </p>
                     </div>
+                    <div class="group-con frame" style="margin-top: 12px; max-height: 235px; overflow: scroll;"></div>
+
                     <div class="form-group" id="boardPrivacyTypeCon">
                         <p><span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span> این بورد خصوصی خواهد بود</p>
                         <select name="boardPrivacyType" id="boardPrivacyType" class="form-control" required="required">
@@ -65,15 +67,15 @@
             <div class="modal-body">
                 <div class="panel panel-default">
                     <div class="panel-body">
-                        <form action="" method="POST" role="form">
-                        @csrf
+                        <form action="" method="POST" role="form" class="create-group-form">
+                            @csrf
                             <div class="form-group">
                                 <label for="name">نام</label>
-                                <input type="text" class="form-control" id="name">
+                                <input type="text" class="form-control" name="name" id="group-name" required="required">
                             </div>
                             <div class="form-group">
                                 <label for="description">توضیحات</label>
-                                <textarea name="description" id="description" class="form-control" rows="3" required="required"></textarea>
+                                <textarea name="description" id="group-description" class="form-control" rows="3" required="required"></textarea>
                             </div>
                             <hr>
                             <div class="form-group">
@@ -107,7 +109,7 @@
             </div>
             <div class="modal-body">
                 <form action="" method="POST" role="form">
-                @csrf
+                    @csrf
                     <div class="form-group">
                         <label for="title">نام کامل</label>
                         <input type="text" class="form-control" id="fullname">
@@ -157,14 +159,14 @@
                     <div class="tab-content">
                         <div role="tabpanel" class="tab-pane active" id="general">
                             <form action="" method="POST" role="form">
-                            @csrf
+                                @csrf
                                 <div class="form-group">
                                     <label for="">عنوان کار</label>
-                                    <a href="#" data-type="text" class="input-editable editable-click" title="Enter Card Title" id="card_title_editable">Empty</a>
+                                    <a href="#" data-type="text" class="input-editable editable-click" title="{{ trans('board.EnterCardTitle') }}" id="card_title_editable">{{ trans('board.Empty') }}</a>
                                 </div>
                                 <div class="form-group">
                                     <label for="">توضیحات</label>
-                                    <a href="#" data-type="textarea" class="input-editable editable-click" title="Enter Card Description" id="card_description_editable">Empty</a>
+                                    <a href="#" data-type="textarea" class="input-editable editable-click" title="{{ trans('board.EnterCardDescription') }}" id="card_description_editable">{{ trans('board.Empty') }}</a>
                                 </div>
                                 <div class="form-group">
                                     <label for="">برچسب</label>
@@ -188,7 +190,7 @@
                             <h1>اضافه کردن تاریخ موعد</h1>
                             <hr>
                             <form action="" method="POST" role="form" style="height: 65px;">
-                            @csrf
+                                @csrf
                                 <div class="row">
                                     <div class="col-lg-6">
                                         <h1 class="label" style="color: #333333; padding-left: 0px; font-size: 16px;">ساخته شده در تاریخ: </h1>
@@ -234,7 +236,7 @@
                                     <h1 style="font-family: monospace; font-size: 23px; font-weight: 700; margin: 0;">اظهار نظرها: </h1>
                                     <hr style="margin-top: 5px;">
                                     <form method="POST" role="form" role="form">
-                                    @csrf
+                                        @csrf
                                         <div class="row">
                                             <div class="col-lg-10">
                                                 <div class="form-group">
