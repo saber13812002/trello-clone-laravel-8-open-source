@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::post('/post-group', 'GroupController@postGroup');
+Route::post('/board/post-group', 'GroupController@postGroup');
 
 Route::get('/saber', 'saber@index');
 Route::get('/', ['middleware' => 'guest', 'uses' => 'UserController@getLogin', 'as' => 'auth.login',]);
