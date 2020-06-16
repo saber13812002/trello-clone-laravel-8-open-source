@@ -60,7 +60,6 @@ Route::group(
 
         Route::post('create-user-activity', ['uses' => 'UserActivityController@createUserActivity']);
 
-        
 
     }
 );
@@ -82,3 +81,6 @@ Route::group(
 );
 
 Route::post('create-user-activity', ['uses' => 'UserActivityController@createUserActivity']);
+
+
+Route::get('/reports', 'ReportController@index');
