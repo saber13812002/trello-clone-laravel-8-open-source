@@ -18,4 +18,27 @@ class ExampleTest extends TestCase
 
         $response->assertStatus(200);
     }
+
+    /**
+     * A basic functional test example.
+     *
+     * @return void
+     */
+    public function testBasicExample()
+    {
+        $response = $this->withHeaders([
+            'X-Header' => 'Value',
+        ])->json('POST', '/board', [
+            'owner_id' => 1,
+            'user_id' => 1,
+            'board_id' => 1,
+            'level' => "read",
+        ]);
+
+        $response
+            ->assertStatus(201)
+            ->assertJson([
+                'created' => true,
+            ]);
+    }
 }

@@ -25,10 +25,13 @@
         </div>
     </div>
     <div class="my-board">
-        <h1 class="board-starred-heading" style="margin-top: 10px;margin-left: 15px;font-weight: 500;font-size: 25px;"><span class="glyphicon glyphicon-list-alt starred-boards" aria-hidden="true"></span> بورد های من</h1>
+        
+    @if(sizeof($departments) > 0)
+    @foreach($departments as $department)
+        <h1 class="board-starred-heading" style="margin-top: 10px;margin-left: 15px;font-weight: 500;font-size: 25px;"><span class="glyphicon glyphicon-list-alt starred-boards" aria-hidden="true"></span> {{ $department->name }}</h1>
         <div class="row boards-col">
-            @if(sizeof($boards) > 0)
-                @foreach($boards as $board)
+            @if(sizeof($department->boards) > 0)
+                @foreach($department->boards as $board)
                     <div class="col-lg-3" data-boardid="{{ $board->id }}">
                         <div class="board-link" style="cursor: pointer;" data-boardid="{{ $board->id }}">
                             <div class="row">
@@ -63,6 +66,16 @@
                 </a>
             </div>
         </div>
+    @endforeach
+    @endif
     </div>
+    <!-- @foreach($departments as $department)
+    <tr>
+        <td>{{ $department->name }}</td>
+            @foreach($department->boards as $board)
+            <td>{{$board->boardTitle }}</td>
+            @endforeach
+    </tr>
+    @endforeach -->
 </div>
 @endsection

@@ -67,16 +67,19 @@
             </li>
             <hr>
             <li style="padding-left: 15px; padding-right: 30px;">
-                <a href="{{ route('user.dashboard') }}" style="color: #393333;"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> خانه</a>                
+                <a href="{{ route('user.dashboard') }}" style="color: #393333;"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> {{ trans('board.Home') }}</a>                
             </li>
             <li style="padding-left: 15px; padding-right: 30px;">
-                <a href="{{ route('user.activity') }}" style="color: #393333;"><span class="glyphicon glyphicon-fire" aria-hidden="true"></span> فعالیت های من</a>
+                <a href="{{ route('user.activity') }}" style="color: #393333;"><span class="glyphicon glyphicon-fire" aria-hidden="true"></span> {{ trans('board.Activity') }}</a>
             </li>
             <li style="padding-left: 15px; padding-right: 30px;">
-                <a href="{{ route('user.profile') }}" style="color: #393333;"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> پروفایل من</a>
+                <a href="{{ route('user.profile') }}" style="color: #393333;"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> {{ trans('board.Profile') }}</a>
             </li>
             <li style="padding-left: 15px; padding-right: 30px;">
-                <a href="{{ url('/logout') }}" style="color: #393333;"><span class="glyphicon glyphicon-off" aria-hidden="true"></span> خروج از سیستم</a>
+                <a href="{{ route('user.setting') }}" style="color: #393333;"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> {{ trans('board.Setting') }}</a>
+            </li>
+            <li style="padding-left: 15px; padding-right: 30px;">
+                <a href="{{ url('/logout') }}" style="color: #393333;"><span class="glyphicon glyphicon-off" aria-hidden="true"></span> {{ trans('board.Logout') }}</a>
             </li>
         </ul>
     </div>

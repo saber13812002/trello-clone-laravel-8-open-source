@@ -37,6 +37,19 @@ class UserActivityController extends Controller
     }
 
     /**
+     * Gets user setting from the database for a specifc user that is currently logged in.
+     * @return view User setting page or view
+     */
+    public function getUserSetting()
+    {
+        $boards = $this->board->getUserBoards(Auth::id());
+        $userActivity = $this->userActivity->getUserActivity(Auth::id());
+
+        $page = 'setting';
+        return view('user.setting', compact('page', 'boards', 'userActivity'));
+    }
+
+    /**
      * Creates a new user activity
      * @param  Request $request have a input data for this function
      * @return bool true

@@ -27,10 +27,12 @@ class UserController extends Controller
      */
     public function getDashboard()
     {
+        $departments = \App\Models\Department::with(['boards'])->get();
+        //dd($departments->toArray());
         $boards = $this->board->getUserBoards(Auth::id());
         $starredBoards = $this->board->getUserStarredBoards(Auth::id());
 
-        return view('user.home', compact('boards', 'starredBoards'));
+        return view('user.home', compact('boards', 'starredBoards', 'departments'));
     }
 
     /**

@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
+use App\Models\Department;
+
 class Board extends Model
 {
     protected $table = "board";
@@ -14,6 +16,7 @@ class Board extends Model
 
     public function getUserBoards($user_id)
     {
+//        $group_ids=$this->;
     	return $this->where(['user_id' => $user_id,])->get();
     }
 
@@ -27,7 +30,7 @@ class Board extends Model
         return $this->create([
             'user_id' => $user_id,
             'boardTitle' => $input->get('boardTitle'),
-            'boardPrivacyType' => $input->get('boardPrivacyType'),  
+            'boardPrivacyType' => $input->get('boardPrivacyType'),
         ]);
     }
 
@@ -44,5 +47,14 @@ class Board extends Model
     public function updateBoardFavourite($input)
     {
         return $this->where("id", $input->get("boardId"))->update(["is_starred" => $input->get("isFavourite"),]);
+    }
+
+    
+    /**
+     * Get the department that owns the board.
+     */
+    public function department()
+    {
+        return $this->belongsTo(Department::class);
     }
 }

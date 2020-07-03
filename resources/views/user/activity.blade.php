@@ -13,6 +13,9 @@
                     <li role="presentation" @if($page=='profile') class="active" @endif>
                         <a href="{{ route('user.profile') }}"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span> {{ trans('board.Profile') }}</a>
                     </li>	
+                    <li role="presentation" @if($page=='setting') class="active" @endif>
+                        <a href="{{ route('user.setting') }}"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span> {{ trans('board.Setting') }}</a>
+                    </li>	
                 </ul>
 	    	</div>
 	    </div>

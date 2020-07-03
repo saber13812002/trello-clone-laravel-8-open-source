@@ -28,7 +28,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
      * @param  string $email Email of the user
      * @return User
      */
-    public function findByEmail($email) 
+    public function findByEmail($email)
     {
         return $this->where('email', $email)->first();
     }
@@ -41,5 +41,14 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
             'password' => \Hash::make($input->get('password')),
         ]);
         return true;
+    }
+
+
+    /**
+     * Get the members for this user.
+     */
+    public function members()
+    {
+        return $this->hasMany('App\Models\BoardMember');
     }
 }

@@ -18,7 +18,7 @@ Route::post('/board/post-group', 'GroupController@postGroup');
 Route::get('/saber', 'saber@index');
 Route::get('/', ['middleware' => 'guest', 'uses' => 'UserController@getLogin', 'as' => 'auth.login',]);
 Route::get('login', ['middleware' => 'guest', 'uses' => 'UserController@getLogin', 'as' => 'auth.login',]);
-Route::post('login', ['middleware' => 'guest', 'uses' => 'UserController@postLogin',]);
+Route::post('login', ['middleware' => 'guest', 'uses' => 'UserController@postLogin',])->name('login');
 //Route::get('password/reset/{token?}', ['middleware' => 'guest', 'uses' => 'UserController@reset',]);
 //Route::post('password/reset', ['middleware' => 'guest', 'uses' => 'UserController@resetPassword',]);
 Route::get('logout', function () {
@@ -30,6 +30,8 @@ Route::post('register', ['middleware' => 'guest', 'uses' => 'UserController@post
 Route::get('dashboard', ['middleware' => 'auth', 'uses' => 'UserController@getDashboard', 'as' => 'user.dashboard',]);
 Route::get('profile', ['middleware' => 'auth', 'uses' => 'UserController@getProfile', 'as' => 'user.profile',]);
 Route::get('activity', ['middleware' => 'auth', 'uses' => 'UserActivityController@getUserActivity', 'as' => 'user.activity',]);
+
+Route::get('setting', ['middleware' => 'auth', 'uses' => 'UserActivityController@getUserSetting', 'as' => 'user.setting',]);
 
 Route::post('postBoard', ['middleware' => 'auth', 'uses' => 'BoardController@postBoard',]);
 Route::post('update-board-favourite', ['middleware' => 'auth', 'uses' => 'BoardController@updateBoardFavourite',]);
@@ -60,6 +62,7 @@ Route::group(
 
         Route::post('create-user-activity', ['uses' => 'UserActivityController@createUserActivity']);
 
+        Route::post('/create-board-member', ['uses' => 'BoardMemberController@create',]);
 
     }
 );
