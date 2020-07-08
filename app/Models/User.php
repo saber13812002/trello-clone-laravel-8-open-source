@@ -16,7 +16,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
     protected $table = 'users';
 
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'status',
     ];
 
     protected $hidden = [
@@ -41,5 +41,14 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
             'password' => \Hash::make($input->get('password')),
         ]);
         return true;
+    }
+
+
+    /**
+     * Get the members for this user.
+     */
+    public function members()
+    {
+        return $this->hasMany('App\Models\BoardMember');
     }
 }

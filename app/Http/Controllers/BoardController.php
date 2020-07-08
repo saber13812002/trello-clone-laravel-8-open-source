@@ -9,7 +9,7 @@ use App\Http\Controllers\Controller;
 use DB;
 
 use Auth;
-use \App\User;
+use \App\Models\User;
 use \App\Models\Board;
 use \App\Models\CardTag;
 use \App\Models\BoardList;

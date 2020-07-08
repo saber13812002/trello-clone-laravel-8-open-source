@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 use Auth;
 use App\Http\Requests;
-use \App\User;
+use \App\Models\User;
 use \App\Models\Board;
 use Validator;
 
