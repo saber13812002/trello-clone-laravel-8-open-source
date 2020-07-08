@@ -73,7 +73,7 @@ class UserController extends AdminController
         $form->email('email', __('Email'));
         // $form->password('password', __('Password'));
         // $form->text('remember_token', __('Remember token'));
-        $form->text('token', __('Token'));
+        // $form->text('token', __('Token'));
 
         return $form;
     }
