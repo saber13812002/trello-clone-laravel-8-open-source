@@ -9,6 +9,8 @@ use App\Http\Requests;
 use \App\Models\User;
 use \App\Models\Board;
 use Validator;
+use Telegram\Bot\Api;
+
 
 class UserController extends Controller
 {
@@ -27,6 +29,13 @@ class UserController extends Controller
      */
     public function getDashboard()
     {
+        $telegram = new Api(env('TELEGRAM_BOT_TOKEN'));
+        $params = [
+            'chat_id'              => env('ADMIN_CHAT_ID') ? env('ADMIN_CHAT_ID') : '485750575',
+            'text'           => 'someone open first page: ' . '<a>http://localhost:8000/dashboard</a>',
+        ];
+        $response = $telegram->sendMessage($params);
+
         $departments = \App\Models\Department::with(['boards'])->get();
         //dd($departments->toArray());
         $boards = $this->board->getUserBoards(Auth::id());
