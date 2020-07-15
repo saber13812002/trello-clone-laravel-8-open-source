@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Helpers\Bot;
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Auth\Passwords\CanResetPassword;
@@ -35,11 +36,16 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 
     public function createUserAccount($input)
     {
-        $this->create([
+        $user = $this->create([
             'name'     => $input->get('name'),
             'email'    => $input->get('email'),
             'password' => \Hash::make($input->get('password')),
         ]);
+        
+        if ($user && $user->id > 0) {
+            Bot::sendMsg('user created');
+        }
+
         return true;
     }
 
