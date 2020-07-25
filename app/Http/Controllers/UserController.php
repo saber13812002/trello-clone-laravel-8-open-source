@@ -37,8 +37,8 @@ class UserController extends Controller
             $isMojri = false;
         } else {
             $departments = \App\Models\Department::with(['boards'])->where('owner_id', Auth::id())->get();
-            if (sizeof($departments) == 0) {
-                $isMojri = true;
+            if (sizeof($departments) > 0) {
+                $isMojri = false;
             }
             //dd($departments->toArray());
         }
