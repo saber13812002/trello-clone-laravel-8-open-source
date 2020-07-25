@@ -14,9 +14,9 @@
         "fruitcake/laravel-cors": "^1.0",
         "guzzlehttp/guzzle": "^6.3",
         "hekmatinasser/verta": "^1.10",
-        "irazasyed/telegram-bot-sdk": "dev-develop",
         "laravel/framework": "^7.0",
-        "laravel/tinker": "^2.0"
+        "laravel/tinker": "^2.0",
+        "saber13812002/telegram-bot-sdk": "^3.0"
     },
     "require-dev": {
         "facade/ignition": "^2.0",
