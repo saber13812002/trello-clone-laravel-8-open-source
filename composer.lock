@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2c456b3a39395640629fccd5b7f9b6b7",
+    "content-hash": "a1057f141c0d482a7bd6f296829a1666",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -2422,17 +2422,17 @@
             "time": "2020-03-29T20:13:32+00:00"
         },
         {
-            "name": "saber13812002/telegram-bot-sdk",
+            "name": "saber13812002/bale-bot-sdk-laravel",
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://github.com/saber13812002/telegram-bot-sdk.git",
-                "reference": "6719aca7f6e5ec1f514908289f2d9fd683ee6352"
+                "url": "https://github.com/saber13812002/bale-bot-sdk-laravel.git",
+                "reference": "edead2097e262785dec93bf282458e5a08a46001"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/saber13812002/telegram-bot-sdk/zipball/6719aca7f6e5ec1f514908289f2d9fd683ee6352",
-                "reference": "6719aca7f6e5ec1f514908289f2d9fd683ee6352",
+                "url": "https://api.github.com/repos/saber13812002/bale-bot-sdk-laravel/zipball/edead2097e262785dec93bf282458e5a08a46001",
+                "reference": "edead2097e262785dec93bf282458e5a08a46001",
                 "shasum": ""
             },
             "require": {
@@ -2474,13 +2474,13 @@
             ],
             "authors": [
                 {
-                    "name": "Syed saber Tabatabaee yazdi",
+                    "name": "Sayed saber Tabatabaee yazdi",
                     "email": "saber.tabatabaee@gmail.com",
                     "homepage": "https://github.com/saber13812002"
                 }
             ],
             "description": "The Unofficial Telegram Bot API PHP SDK",
-            "homepage": "https://github.com/saber13812002/telegram-bot-sdk",
+            "homepage": "https://github.com/saber13812002/bale-bot-sdk-laravel",
             "keywords": [
                 "laravel",
                 "laravel telegram",
@@ -2490,7 +2490,7 @@
                 "telegram php",
                 "telegram sdk"
             ],
-            "time": "2020-07-25T15:03:32+00:00"
+            "time": "2020-07-25T19:56:17+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -6539,7 +6539,9 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "saber13812002/bale-bot-sdk-laravel": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
