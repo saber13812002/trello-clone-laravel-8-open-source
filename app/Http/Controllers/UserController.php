@@ -31,12 +31,28 @@ class UserController extends Controller
     {
         Bot::sendMsg('someone open dashboard');
 
-        $departments = \App\Models\Department::with(['boards'])->get();
-        //dd($departments->toArray());
-        $boards = $this->board->getUserBoards(Auth::id());
-        $starredBoards = $this->board->getUserStarredBoards(Auth::id());
+        $isMojri = true;
+        if (env('USER_ADMIN_ID1') == Auth::id() || env('USER_ADMIN_ID2') == Auth::id()) {
+            $departments = \App\Models\Department::with(['boards'])->get();
+            $isMojri = false;
+        } else {
+            $departments = \App\Models\Department::with(['boards'])->where('owner_id', Auth::id())->get();
+            if (sizeof($departments) == 0) {
+                $isMojri = true;
+            }
+            //dd($departments->toArray());
+        }
 
-        return view('user.home', compact('boards', 'starredBoards', 'departments'));
+        if ($isMojri == true) {
+            $boards = $this->board->getUserBoards(Auth::id());
+            $departments = $boards->first()->department()->get();
+            $starredBoards = $this->board->getUserStarredBoards(Auth::id());
+            return view('user.home', compact('boards', 'starredBoards', 'departments', 'isMojri'));
+        } else {
+            $boards = [];
+            $starredBoards = [];
+            return view('user.home', compact('boards', 'starredBoards', 'departments', 'isMojri'));
+        }
     }
 
     /**
