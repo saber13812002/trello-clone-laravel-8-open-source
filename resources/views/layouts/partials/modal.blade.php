@@ -24,9 +24,11 @@
                         <p><span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span> مدیر بورد</p>
                         <select name="boardAdminUserId" id="boardAdminUserId" class="form-control" required="required">
                             <option value="">انتخاب یک مدیر...</option>
+                            @if(isset($users))
                             @foreach($users as $user)
                             <option value="{{ $user['id'] }}">{{ $user["name"] }}</option>
                             @endforeach
+                            @endif
                         </select>
                     </div>
 

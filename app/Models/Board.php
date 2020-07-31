@@ -11,24 +11,24 @@ class Board extends Model
     protected $table = "board";
 
     protected $fillable = [
-        'user_id', 'boardTitle', 'boardPrivacyType' , 'department_id', 'owner_id',
+        'user_id', 'boardTitle', 'boardPrivacyType', 'department_id', 'owner_id',
     ];
 
     public function getUserBoards($user_id)
     {
-//        $group_ids=$this->;
-    	return $this->where(['user_id' => $user_id,])->get();
+        //        $group_ids=$this->;
+        return $this->where(['user_id' => $user_id,])->get();
     }
 
     public function getUserStarredBoards($user_id)
     {
-    	return $this->where(['user_id' => $user_id, 'is_starred' => 1])->orderBy('created_at', 'desc')->get();
+        return $this->where(['user_id' => $user_id, 'is_starred' => 1])->orderBy('created_at', 'desc')->get();
     }
 
     public function createBoard($input, $user_id)
     {
         // get current_user department id 
-        $department_id = Department::getDepartmentIdByUserId($user_id)?:0;
+        $department_id = Department::getDepartmentIdByUserId($user_id) ?: 0;
 
         return $this->create([
             'user_id' => $user_id,
@@ -46,7 +46,7 @@ class Board extends Model
 
     public function getUserRecentBoards($user_id)
     {
-        return $this->where(['user_id' => $user_id, ])->orderBy('created_at', 'desc')->take(3)->get();
+        return $this->where(['user_id' => $user_id,])->orderBy('created_at', 'desc')->take(3)->get();
     }
 
     public function updateBoardFavourite($input)
@@ -54,12 +54,22 @@ class Board extends Model
         return $this->where("id", $input->get("boardId"))->update(["is_starred" => $input->get("isFavourite"),]);
     }
 
-    
+
     /**
      * Get the department that owns the board.
      */
     public function department()
     {
         return $this->belongsTo(Department::class);
+    }
+
+    public function setBaordAdmin($input)
+    {
+        $boardAdminUserId = $input->get("boardAdminUserId");
+        $boardId = $input->get("board_id");
+        $board = Board::where('id', $boardId)->first();
+        $board->owner_id = $boardAdminUserId;
+        $board->save();
+        return true;
     }
 }

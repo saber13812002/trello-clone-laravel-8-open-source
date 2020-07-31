@@ -41,9 +41,9 @@ class BoardController extends Controller
     {
         $this->validate($request, [
             'boardTitle'        => 'required|unique:board,boardTitle',
-            'boardPrivacyType'  => 'required',   
+            'boardPrivacyType'  => 'required',
         ]);
-        
+
         return $this->board->createBoard($request, Auth::id());
     }
 
@@ -60,8 +60,9 @@ class BoardController extends Controller
         $cardTaskCount = json_decode(json_encode($this->boardCard->cardTotalTask()), True);
         $boards = $this->board->getUserBoards(Auth::id());
         $recentBoards = $this->board->getUserRecentBoards(Auth::id());
+        $users = User::all();
 
-        return view('user.board', compact('boardDetail', 'lists', 'cards', 'cardTaskCount', 'boards', 'recentBoards'));
+        return view('user.board', compact('boardDetail', 'lists', 'cards', 'cardTaskCount', 'boards', 'recentBoards', 'users'));
     }
 
     /**
@@ -74,4 +75,12 @@ class BoardController extends Controller
         return $this->board->updateBoardFavourite($request);
     }
 
+    public function setBaordAdmin(Request $request)
+    {
+        $this->board->setBaordAdmin($request);   
+
+        return [
+            'success' => 'success', 
+        ];
+    }
 }
