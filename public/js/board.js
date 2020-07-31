@@ -298,6 +298,36 @@ $(document).ready(function () {
                 }
             });
 
+            // $("#boardAdminUserId").on("change", "", function (e) {
+            //     var optionSelected = $("option:selected", this);
+            //     var valueSelected = this.value;
+            //     console.log(valueSelected);
+            // });
+
+            $(document).on("submit", "#select-user-form", function (event) {
+
+                event.preventDefault();
+                var boardAdminUserId = $("#boardAdminUserId2").val();
+                var board_id = $("#board_id").val();
+                var location = window.location;
+
+                $.ajax({
+                    url: "set-board-admin",
+                    type: "POST",
+                    dataType: "json",
+                    data: {
+                        boardAdminUserId: boardAdminUserId,
+                        board_id: board_id,
+                    },
+                    success: function (data) {
+                        location.reload();
+                    },
+                    error: function (error) {
+                        location.reload();
+                    },
+                });
+            });
+
             $(document).on("click", ".delete-list", function () {
                 var listId = $(this).data("listid");
                 that.deleteList(listId, this);
@@ -1170,31 +1200,31 @@ $(document).ready(function () {
                     description: description,
                 },
                 success: function (data) {
-                    $(".group-con")
-                        .append(
-                            '<li class="list-group-item board-list-items ui-sortable-handle" id="card_' +
-                                data.id +
-                                '" data-cardid="' +
-                                data.id +
-                                '" data-toggle="modal" href="#card-detail">' +
-                                '<div class="row">' +
-                                '<div class="col-lg-12">' +
-                                '<p style="margin-bottom: 0px;" class="pull-left">' +
-                                data.name + " <br /> " +
-                                data.description +
-                                "</p>" +
-                                '<ul class="card-description-intro list-inline pull-right"></ul>' +
-                                "</div>" +
-                                "</div>" +
-                                "</li>"
-                        );
+                    $(".group-con").append(
+                        '<li class="list-group-item board-list-items ui-sortable-handle" id="card_' +
+                            data.id +
+                            '" data-cardid="' +
+                            data.id +
+                            '" data-toggle="modal" href="#card-detail">' +
+                            '<div class="row">' +
+                            '<div class="col-lg-12">' +
+                            '<p style="margin-bottom: 0px;" class="pull-left">' +
+                            data.name +
+                            " <br /> " +
+                            data.description +
+                            "</p>" +
+                            '<ul class="card-description-intro list-inline pull-right"></ul>' +
+                            "</div>" +
+                            "</div>" +
+                            "</li>"
+                    );
                     // $(that.targetList).find('form').hide();
                     // $(that.targetList).find('form textarea').val('');
                     // $(that.targetList).find('a.show-input-field').show();
                     that.createActivity(
                         data.id,
                         "add_group",
-                        "created a group: " + name + "desc: " + description 
+                        "created a group: " + name + "desc: " + description
                     );
                 },
                 error: function (error) {
@@ -1411,4 +1441,9 @@ $(document).ready(function () {
         saveListNameBtn: $("#saveListName"),
         createBoardLink: $(".board-create-link"),
     });
+
+    
+    var theButton = document.getElementById("nav-bar-toggle");
+
+    theButton.style.display = "block";
 });

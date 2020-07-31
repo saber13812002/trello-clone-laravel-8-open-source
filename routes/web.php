@@ -14,6 +14,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::post('/board/post-group', 'GroupController@postGroup');
+// TODO: MOVE TO AUTH
+Route::post('/board/set-board-admin', 'BoardController@setBaordAdmin');
 
 Route::get('/saber', 'saber@index');
 Route::get('/', ['middleware' => 'guest', 'uses' => 'UserController@getLogin', 'as' => 'auth.login',]);
@@ -33,6 +35,8 @@ Route::get('activity', ['middleware' => 'auth', 'uses' => 'UserActivityControlle
 
 Route::get('setting', ['middleware' => 'auth', 'uses' => 'UserActivityController@getUserSetting', 'as' => 'user.setting',]);
 
+
+// todo: DUPLICATE ROUTE
 Route::post('postBoard', ['middleware' => 'auth', 'uses' => 'BoardController@postBoard',]);
 Route::post('update-board-favourite', ['middleware' => 'auth', 'uses' => 'BoardController@updateBoardFavourite',]);
 
@@ -63,6 +67,7 @@ Route::group(
         Route::post('create-user-activity', ['uses' => 'UserActivityController@createUserActivity']);
 
         Route::post('/create-board-member', ['uses' => 'BoardMemberController@create',]);
+        Route::post('postBoard', ['middleware' => 'auth', 'uses' => 'BoardController@postBoard',]);
 
     }
 );
