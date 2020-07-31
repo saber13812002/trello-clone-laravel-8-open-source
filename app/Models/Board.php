@@ -11,7 +11,7 @@ class Board extends Model
     protected $table = "board";
 
     protected $fillable = [
-        'user_id', 'boardTitle', 'boardPrivacyType',
+        'user_id', 'boardTitle', 'boardPrivacyType' , 'department_id',
     ];
 
     public function getUserBoards($user_id)
@@ -27,10 +27,14 @@ class Board extends Model
 
     public function createBoard($input, $user_id)
     {
+        // get current_user department id 
+        $department_id = Department::getDepartmentIdByUserId($user_id)?:0;
+
         return $this->create([
             'user_id' => $user_id,
             'boardTitle' => $input->get('boardTitle'),
             'boardPrivacyType' => $input->get('boardPrivacyType'),
+            'department_id' => $department_id,
         ]);
     }
 

@@ -28,7 +28,8 @@
                             <option value="public">عمومی</option>
                         </select>
                     </div>
-                </form>
+                </form> 
+                <!-- base_url:8000/postboard -->
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">بستن</button>

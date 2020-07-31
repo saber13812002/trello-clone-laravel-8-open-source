@@ -9,7 +9,7 @@ class Department extends Model
 {
     //
 
-    
+
     /**
      * Get the borads for this department.
      */
@@ -23,4 +23,11 @@ class Department extends Model
     // >>> $boards = App\Models\Department::find(1)->boards;
     // $boards->first()->department;
     // $boards->first();
+
+
+    public static function getDepartmentIdByUserId($user_id)
+    {
+        $department = Department::where('owner_id', $user_id)->first();
+        return $department->id;
+    }
 }
