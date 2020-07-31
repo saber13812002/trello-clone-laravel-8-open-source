@@ -20,6 +20,16 @@
                     </div>
                     <div class="group-con frame" style="margin-top: 12px; max-height: 235px; overflow: scroll;"></div>
 
+                    <div class="form-group" id="boardAdminUserIdCon">
+                        <p><span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span> مدیر بورد</p>
+                        <select name="boardAdminUserId" id="boardAdminUserId" class="form-control" required="required">
+                            <option value="">انتخاب یک مدیر...</option>
+                            @foreach($users as $user)
+                            <option value="{{ $user['id'] }}">{{ $user["name"] }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+
                     <div class="form-group" id="boardPrivacyTypeCon">
                         <p><span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span> این بورد خصوصی خواهد بود</p>
                         <select name="boardPrivacyType" id="boardPrivacyType" class="form-control" required="required">
@@ -28,7 +38,7 @@
                             <option value="public">عمومی</option>
                         </select>
                     </div>
-                </form> 
+                </form>
                 <!-- base_url:8000/postboard -->
             </div>
             <div class="modal-footer">

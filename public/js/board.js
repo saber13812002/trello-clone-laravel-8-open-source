@@ -1230,6 +1230,7 @@ $(document).ready(function () {
                 data: {
                     boardTitle: that.params["boardTitle"].val(),
                     boardPrivacyType: that.params["boardPrivacyType"].val(),
+                    boardAdminUserId: that.params["boardAdminUserId"].val(),
                 },
                 success: function (data) {
                     $(that.params["createBoardLink"])
@@ -1402,6 +1403,7 @@ $(document).ready(function () {
     Board.init({
         boardTitle: $("#boardTitle"),
         boardPrivacyType: $("#boardPrivacyType"),
+        boardAdminUserId: $("#boardAdminUserId"),
         saveBoardBtn: $("#save-board"),
         addGroupBtn: $("#add-group"),
         createNewBoardModal: $("#create-new-board"),

@@ -11,7 +11,7 @@ class Board extends Model
     protected $table = "board";
 
     protected $fillable = [
-        'user_id', 'boardTitle', 'boardPrivacyType' , 'department_id',
+        'user_id', 'boardTitle', 'boardPrivacyType' , 'department_id', 'owner_id',
     ];
 
     public function getUserBoards($user_id)
@@ -35,6 +35,7 @@ class Board extends Model
             'boardTitle' => $input->get('boardTitle'),
             'boardPrivacyType' => $input->get('boardPrivacyType'),
             'department_id' => $department_id,
+            'owner_id' => $input->get('boardAdminUserId'),
         ]);
     }
 

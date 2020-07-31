@@ -42,16 +42,17 @@ class UserController extends Controller
             }
             //dd($departments->toArray());
         }
+        $users = User::all();
 
         if ($isMojri == true) {
             $boards = $this->board->getUserBoards(Auth::id());
             $departments = $boards->first()->department()->get();
             $starredBoards = $this->board->getUserStarredBoards(Auth::id());
-            return view('user.home', compact('boards', 'starredBoards', 'departments', 'isMojri'));
+            return view('user.home', compact('boards', 'starredBoards', 'departments', 'isMojri', 'users'));
         } else {
             $boards = [];
             $starredBoards = [];
-            return view('user.home', compact('boards', 'starredBoards', 'departments', 'isMojri'));
+            return view('user.home', compact('boards', 'starredBoards', 'departments', 'isMojri', 'users'));
         }
     }
 
