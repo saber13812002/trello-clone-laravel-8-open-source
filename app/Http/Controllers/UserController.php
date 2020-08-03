@@ -73,8 +73,10 @@ class UserController extends Controller
             return view('user.home', compact('boards', 'starredBoards', 'departments', 'isMojri', 'users'));
         }
 
+        $boards = \App\Models\Board::where('user_id', Auth::id())->get();
+        $starredBoards = $this->board->getUserStarredBoards(Auth::id());
         Bot::sendMsg('http://pfajazi.ir/admin/users/' . Auth::id() . '/edit');
-        return view('user.home', compact('boards', 'starredBoards'));
+        return view('user.my', compact('boards', 'starredBoards'));
         //
         return view('errors.403');
     }
