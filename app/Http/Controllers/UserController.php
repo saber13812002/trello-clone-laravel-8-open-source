@@ -73,7 +73,7 @@ class UserController extends Controller
             $starredBoards = [];
             return view('user.home', compact('boards', 'starredBoards', 'departments', 'isMojri', 'users'));
         }
-        return view('user.home', compact('boards', 'starredBoards', 'departments', 'isMojri', 'users'));
+        //return view('user.home', compact('boards', 'starredBoards', 'departments', 'isMojri', 'users'));
     }
 
 
