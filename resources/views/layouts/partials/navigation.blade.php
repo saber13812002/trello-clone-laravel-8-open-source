@@ -53,7 +53,7 @@
                     <select name="boardAdminUserId2" id="boardAdminUserId2" class="selectize-input items not-full has-options" required="required">
                         @if(isset($users))
                         @foreach($users as $user)
-                        @if($board['owner_id'] == $user['id'])
+                        @if($boardDetail['owner_id'] == $user['id'])
                         <option value="{{ $user['id'] }}" selected>{{ $user["name"] }}</option>
                         @else
                         <option value="{{ $user['id'] }}">{{ $user["name"] }}</option>

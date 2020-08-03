@@ -35,26 +35,56 @@ class UserController extends Controller
         if (env('USER_ADMIN_ID1') == Auth::id() || env('USER_ADMIN_ID2') == Auth::id()) {
             $departments = \App\Models\Department::with(['boards'])->get();
             $isMojri = false;
-        } else {
-            $departments = \App\Models\Department::with(['boards'])->where('owner_id', Auth::id())->get();
-            if (sizeof($departments) > 0) {
-                $isMojri = false;
-            }
-            //dd($departments->toArray());
         }
+
+        $departments = \App\Models\Department::with(['boards'])->where('owner_id', Auth::id())->get();
+        if (sizeof($departments) > 0) {
+            $isMojri = false;
+        }
+
+        //dd($departments->toArray());
+        $boards = \App\Models\Board::where('owner_id', Auth::id())->get();
+        if (sizeof($boards) > 0) {
+            $isMojri = false;
+        }
+
         $users = User::all();
 
         if ($isMojri == true) {
             $boards = $this->board->getUserBoards(Auth::id());
-            $departments = $boards->first()->department()->get();
-            $starredBoards = $this->board->getUserStarredBoards(Auth::id());
-            return view('user.home', compact('boards', 'starredBoards', 'departments', 'isMojri', 'users'));
+            if ($boards->first()) {
+                $departments = $boards->first()->department()->get();
+                $starredBoards = $this->board->getUserStarredBoards(Auth::id());
+                return view('user.home', compact('boards', 'starredBoards', 'departments', 'isMojri', 'users'));
+            }
         } else {
-            $boards = [];
+            if (!isset($boards))
+                $boards = [];
+            else {
+                $departments = array();
+                foreach ($boards as $board) {
+                    if (!$this->existIn($departments, $board->department))
+                        $departments[] = $board->department;
+                }
+            }
+
             $starredBoards = [];
             return view('user.home', compact('boards', 'starredBoards', 'departments', 'isMojri', 'users'));
         }
+        return view('user.home', compact('boards', 'starredBoards', 'departments', 'isMojri', 'users'));
     }
+
+
+    private function existIn($departments, $department)
+    {
+        foreach ($departments as $dep) {
+            if ($dep->id == $department->id)
+                return true;
+        }
+        return false;
+    }
+
+
 
     /**
      * Get the board view
