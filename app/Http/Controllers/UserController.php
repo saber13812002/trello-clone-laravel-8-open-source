@@ -33,17 +33,17 @@ class UserController extends Controller
 
         $isMojri = true;
         if (env('USER_ADMIN_ID1') == Auth::id() || env('USER_ADMIN_ID2') == Auth::id()) {
-            $departments = \App\Models\Department::with(['boards'])->get();
+            $departments = \App\Models\Department::with(['boards', 'owner'])->get();
             $isMojri = false;
         }
 
-        $departments = \App\Models\Department::with(['boards'])->where('owner_id', Auth::id())->get();
+        $departments = \App\Models\Department::with(['boards', 'owner'])->where('owner_id', Auth::id())->get();
         if (sizeof($departments) > 0) {
             $isMojri = false;
         }
 
         //dd($departments->toArray());
-        $boards = \App\Models\Board::where('owner_id', Auth::id())->get();
+        $boards = \App\Models\Board::with('owner')->where('owner_id', Auth::id())->get();
         if (sizeof($boards) > 0) {
             $isMojri = false;
         }
@@ -61,10 +61,12 @@ class UserController extends Controller
             if (!isset($boards))
                 $boards = [];
             else {
-                $departments = array();
-                foreach ($boards as $board) {
-                    if (!$this->existIn($departments, $board->department))
-                        $departments[] = $board->department;
+                if (!$departments->count()) {
+                    $departments = array();
+                    foreach ($boards as $board) {
+                        if (!$this->existIn($departments, $board->department))
+                            $departments[] = $board->department;
+                    }
                 }
             }
 

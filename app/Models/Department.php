@@ -30,4 +30,11 @@ class Department extends Model
         $department = Department::where('owner_id', $user_id)->first();
         return $department->id;
     }
+
+    
+    public function owner()
+    {
+        return $this->belongsTo('App\Models\User', 'owner_id');
+    }
+
 }

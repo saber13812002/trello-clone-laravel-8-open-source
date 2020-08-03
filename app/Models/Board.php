@@ -17,7 +17,7 @@ class Board extends Model
     public function getUserBoards($user_id)
     {
         //        $group_ids=$this->;
-        return $this->where(['user_id' => $user_id,])->get();
+        return $this::with('owner')->where(['user_id' => $user_id,])->get();
     }
 
     public function getUserStarredBoards($user_id)
@@ -61,6 +61,11 @@ class Board extends Model
     public function department()
     {
         return $this->belongsTo(Department::class);
+    }
+
+    public function owner()
+    {
+        return $this->belongsTo('App\Models\User', 'owner_id');
     }
 
     public function setBaordAdmin($input)

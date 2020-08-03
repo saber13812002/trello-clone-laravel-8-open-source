@@ -57,4 +57,12 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
     {
         return $this->hasMany('App\Models\BoardMember');
     }
+
+    /**
+     * Get the boards for this user.
+     */
+    public function boards()
+    {
+        return $this->hasMany('App\Models\Board');
+    }
 }
