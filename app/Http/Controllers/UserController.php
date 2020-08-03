@@ -73,7 +73,7 @@ class UserController extends Controller
             return view('user.home', compact('boards', 'starredBoards', 'departments', 'isMojri', 'users'));
         }
 
-        Bot::sendMsg('http://pfajazi.ir/admin/users/' . Auth()->id . '/edit');
+        Bot::sendMsg('http://pfajazi.ir/admin/users/' . Auth::id() . '/edit');
         return view('user.home', compact('boards', 'starredBoards'));
         //
         return view('errors.403');
