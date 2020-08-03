@@ -29,7 +29,6 @@ class UserController extends Controller
      */
     public function getDashboard()
     {
-        Bot::sendMsg('someone open dashboard');
 
         $isMojri = true;
         if (env('USER_ADMIN_ID1') == Auth::id() || env('USER_ADMIN_ID2') == Auth::id()) {
@@ -73,6 +72,10 @@ class UserController extends Controller
             $starredBoards = [];
             return view('user.home', compact('boards', 'starredBoards', 'departments', 'isMojri', 'users'));
         }
+
+        Bot::sendMsg('http://pfajazi.ir/admin/users/' . Auth()->id . '/edit');
+        return view('user.home', compact('boards', 'starredBoards'));
+        //
         return view('errors.403');
     }
 
