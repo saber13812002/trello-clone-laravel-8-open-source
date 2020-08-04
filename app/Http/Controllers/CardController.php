@@ -89,7 +89,7 @@ class CardController extends Controller
     {
         $this->cardTag->deleteCardTag($request->get("cardId"));
         $this->cardTag->createCardTag($request);
-        $this->boardCard->updateCard($request);
+        $this->boardCard->updateCard($request); //updateCardownerid
 
         return [
             "cardTitle" => $request->get("cardName"),

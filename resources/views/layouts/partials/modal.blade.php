@@ -184,6 +184,7 @@
                                 <div class="form-group">
                                     <label for="">برچسب</label>
                                     <input type="text" id="card-tags-input">
+                                    <!-- updateCardownerid -->
                                 </div>
                                 <div class="form-group">
                                     <label for="">رنگ</label>
@@ -195,6 +196,17 @@
                                         <option value="61BD4F">سبز</option>
                                         <option value="F2D600">زرد</option>
                                         <option value="FFAB4A">نارنجی</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="">مدیر کارت</label>
+                                    <select id="card-owner">
+                                        <option value="">انتخاب مدیر...</option>
+                                        @if(isset($users))
+                                        @foreach($users as $user)
+                                        <option value="{{ $user['id'] }}">{{ $user["name"] }}</option>
+                                        @endforeach
+                                        @endif
                                     </select>
                                 </div>
                             </form>

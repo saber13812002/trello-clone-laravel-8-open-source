@@ -133,6 +133,7 @@ $(document).ready(function () {
             });
 
             $(document).on("click", "#save-change", function (event) {
+                //updateCardownerid
                 event.preventDefault();
                 var cardId = $(document)
                     .find("#card-detail")
@@ -305,7 +306,6 @@ $(document).ready(function () {
             // });
 
             $(document).on("submit", "#select-user-form", function (event) {
-
                 event.preventDefault();
                 var boardAdminUserId = $("#boardAdminUserId2").val();
                 var board_id = $("#board_id").val();
@@ -623,18 +623,20 @@ $(document).ready(function () {
             });
         },
         saveChanges: function (cardId) {
+            //updateCardownerid
             var that = this;
             var cardName = $(document).find("#card_title_editable").text();
             var cardDescription = $(document)
                 .find("#card_description_editable")
                 .text();
-            var cardTags = $(document).find("#card-tags-input").val();
+            var cardTags = $(document).find("#card-tags-input").val(); //
             var cardColor = $(document).find("#card_color").val();
             var cardDueDate = $(document).find("#due-date").val();
             var cardId = $(document).find("#card-detail").attr("data-cardid");
+            var ownerId = $(document).find("#card-owner").val();
 
             $.ajax({
-                url: "update-card-data",
+                url: "update-card-data", // updateCardownerid
                 type: "POST",
                 dataType: "json",
                 data: {
@@ -644,6 +646,7 @@ $(document).ready(function () {
                     cardColor: cardColor,
                     cardDueDate: cardDueDate,
                     cardId: cardId,
+                    ownerId: ownerId,
                 },
                 success: function (data) {
                     $(".list-group-item")
@@ -836,6 +839,9 @@ $(document).ready(function () {
                     var cardColor = data.card.card_color;
                     that.makeEditable("#card_color", cardColor);
 
+                    var cardOwnerId = data.card.owner_id;
+                    that.makeEditable("#card-owner", cardOwnerId);
+                    // cardAdminUserId updateCardownerid
                     var createdAt = data.card.created_at;
                     createdAt = that.formatDate(createdAt);
                     var createdAtInput = $("#created-at").datetimepicker();
@@ -1069,6 +1075,10 @@ $(document).ready(function () {
                     var $select = $("#card-detail").find(elementId).selectize();
                     $select[0].selectize.setValue(opt);
                     break;
+                case "#card-owner":
+                    var $select = $("#card-owner").find(elementId).selectize();
+                    $select[0].selectize.setValue(opt);
+                    break; // updateCardownerid
                 case "#select-board":
                     var my = $(elementId).selectize();
                     $(my)
@@ -1442,7 +1452,6 @@ $(document).ready(function () {
         createBoardLink: $(".board-create-link"),
     });
 
-    
     var theButton = document.getElementById("nav-bar-toggle");
 
     theButton.style.display = "block";
