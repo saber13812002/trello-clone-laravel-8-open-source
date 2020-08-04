@@ -44,10 +44,11 @@ class BoardCard extends Model
     {
         $this->where('id', $input->get("cardId"))->update([
             "card_title" => $input->get("cardName"),
-            //Empty
+            //Empty //updateCardownerid
             "card_description" => ($input->get("cardDescription") != "چیزی ثبت نشده لطفا کلیک کنید و توضیحی اضافه کنید") ? $input->get("cardDescription") : '',
             "card_color" => $input->get("cardColor"),
             "due_date" => date("Y-m-d H:i:s", strtotime($input->get("cardDueDate"))),
+            "owner_id" => $input->get("ownerId"),
         ]);
         return true;
     }
