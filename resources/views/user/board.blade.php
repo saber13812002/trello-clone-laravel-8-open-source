@@ -45,6 +45,11 @@
                                                                 <a href="#" data-placement="bottom" data-toggle="tooltip" title="This card have {{ $card['totalComments'] }} comments." data-totalComments="{{ $card['totalComments'] }}"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span></a>
                                                             </li>
                                                         @endif
+                                                        @if($card['ownerName'] ) 
+                                                            <li id="ownerName">
+                                                                <a href="#" data-placement="bottom" data-toggle="tooltip" title="مجری: {{ $card['ownerName'] }} ." data-totalComments="{{ $card['ownerName'] }}"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></a>
+                                                            </li>
+                                                        @endif
                                                     </ul>
                                                 </div>
                                             </div>                                            
