@@ -1081,7 +1081,7 @@ $(document).ready(function () {
                         .selectize();
                     $select[0].selectize.setValue(opt);
                     $select[0].selectize.options[opt].selected = true;
-                    $select[0].selectize.setValue(opt);
+                    //$select[0].selectize.setValue(opt);
                     break; // updateCardownerid
                 case "#select-board":
                     var my = $(elementId).selectize();
