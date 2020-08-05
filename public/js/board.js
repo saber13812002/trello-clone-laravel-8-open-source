@@ -686,7 +686,7 @@ $(document).ready(function () {
                             .find(".card-description-intro #card_description")
                             .remove();
                     }
-
+                    // fixme TODO if change the name of owner tooltip remain by original value
                     that.reInitializeToolTip();
                     $(".modal#card-detail").modal("hide");
                     that.createActivity(
@@ -1081,7 +1081,7 @@ $(document).ready(function () {
                         .selectize();
                     $select[0].selectize.setValue(opt);
                     $select[0].selectize.options[opt].selected = true;
-                    $select[0].selectize.setValue(opt);
+                    //$select[0].selectize.setValue(opt);
                     break; // updateCardownerid
                 case "#select-board":
                     var my = $(elementId).selectize();

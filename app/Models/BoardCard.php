@@ -58,8 +58,10 @@ class BoardCard extends Model
         return $this->select([
             'board_card.*',
             DB::raw("COUNT(comment.id) as totalComments"),
+            'users.name as ownerName'
         ])
-            ->leftJoin('comment', 'board_card.id', '=', 'comment.card_id')
+        ->leftJoin('comment', 'board_card.id', '=', 'comment.card_id')
+        ->leftJoin('users', 'users.id', '=', 'board_card.owner_id')
             ->groupBy('board_card.id')
             ->get();
     }
