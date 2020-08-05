@@ -633,7 +633,7 @@ $(document).ready(function () {
             var cardColor = $(document).find("#card_color").val();
             var cardDueDate = $(document).find("#due-date").val();
             var cardId = $(document).find("#card-detail").attr("data-cardid");
-            var ownerId = $(document).find("#card-owner").val();
+            var ownerId = $(document).find("#card-owner-select").val();
 
             $.ajax({
                 url: "update-card-data", // updateCardownerid
@@ -840,7 +840,7 @@ $(document).ready(function () {
                     that.makeEditable("#card_color", cardColor);
 
                     var cardOwnerId = data.card.owner_id;
-                    that.makeEditable("#card-owner", cardOwnerId);
+                    that.makeEditable("#card-owner-select", cardOwnerId);
                     // cardAdminUserId updateCardownerid
                     var createdAt = data.card.created_at;
                     createdAt = that.formatDate(createdAt);
@@ -1075,8 +1075,12 @@ $(document).ready(function () {
                     var $select = $("#card-detail").find(elementId).selectize();
                     $select[0].selectize.setValue(opt);
                     break;
-                case "#card-owner":
-                    var $select = $("#card-owner").find(elementId).selectize();
+                case "#card-owner-select":
+                    var $select = $("#card-owner-div")
+                        .find(elementId)
+                        .selectize();
+                    $select[0].selectize.setValue(opt);
+                    $select[0].selectize.options[opt].selected = true;
                     $select[0].selectize.setValue(opt);
                     break; // updateCardownerid
                 case "#select-board":

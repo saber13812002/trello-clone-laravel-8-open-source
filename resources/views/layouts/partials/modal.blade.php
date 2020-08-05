@@ -198,9 +198,9 @@
                                         <option value="FFAB4A">نارنجی</option>
                                     </select>
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group" id="card-owner-div">
                                     <label for="">مدیر کارت</label>
-                                    <select id="card-owner">
+                                    <select id="card-owner-select">
                                         <option value="">انتخاب مدیر...</option>
                                         @if(isset($users))
                                         @foreach($users as $user)
