@@ -50,6 +50,16 @@ You can install using the following way:
 ![](demo-card-comments.gif)
 
 
+## Log file
+
+     $ composer require laravel-admin-ext/log-viewer -vvv
+
+     $ php artisan admin:import log-viewer
+
+     Open http://localhost/admin/logs.
+
+     
+![](demo-log-viewer.png)
 
 ## About Laravel
 
