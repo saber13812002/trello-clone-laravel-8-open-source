@@ -27,14 +27,13 @@ class Department extends Model
 
     public static function getDepartmentIdByUserId($user_id)
     {
-        $department = Department::where('owner_id', $user_id)->first();
+        $department = Department::where('owner_id', $user_id)->firstOrFail();
         return $department->id;
     }
 
-    
+
     public function owner()
     {
         return $this->belongsTo('App\Models\User', 'owner_id');
     }
-
 }
