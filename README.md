@@ -20,6 +20,11 @@ You can install using the following way:
 - Run `composer install` inside the directory composer install
 - Create database and run migrations `php artisan migrate`
 - Run the server `php artisan serve`
+- Run `php artisan admin:create-user`
+- login into localhost:8000/admin
+- add 1- board 2- department 3- user into menu in admin panel
+- see details about log viewer in `log file` section in this page 
+- add link in admin panel http://localhost:8000/admin/logs 
 
 ### create new card and set color to cards and tags
 
