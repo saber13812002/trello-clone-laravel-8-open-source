@@ -2,8 +2,9 @@
 
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Support\Facades\Schema;
 
-class UpdateBoardTable extends Migration
+class InsertOwnerToBoardTable extends Migration
 {
     /**
      * Run the migrations.
