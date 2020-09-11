@@ -8,7 +8,8 @@ use App\Http\Controllers\Controller;
 
 use DB;
 
-use Auth;
+
+use Illuminate\Support\Facades\Auth;
 use \App\Models\User;
 use \App\Models\Board;
 use \App\Models\CardTag;
