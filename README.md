@@ -47,6 +47,7 @@ You can install using the following way:
          - logs
          - users
          - boards
+         - board-cards
 
 ![](demo-card-color-and-tag.gif)
 
@@ -85,8 +86,10 @@ if this user set as admin for two or more departments he can see his dep name in
  1. board manager can assign card manager to every card
  ![](board-manager-can-assign-card-manager.png)
  1. create a new user like dep1b1card1man@gmail.com and approve it from admin panel then set as card manager
- 1. card admin can assign memeber for any task in check list tab in card
+ 1. card manager can assign memeber for any task via (check list tab) in card
+ 1. system admin can change card's managers via admin panel : http://localhost:8000/admin/board-cards
  
+
 ### set card details and subtasks
 
 ![](demo-card-details-subtask.gif)
