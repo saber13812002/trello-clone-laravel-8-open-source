@@ -79,7 +79,14 @@ all unapprover users cant login
  1. board manager see his boards Green color
  ![](board-manager-see-its-board-green.png)
 if this user set as admin for two or more departments he can see his dep name in separate section
-
+ 1. board managers can create list for card
+ 1. board managers can create card in every list.
+ ![](board-manager-can-create-cards-and-lists.png)
+ 1. board manager can assign card manager to every card
+ ![](board-manager-can-assign-card-manager.png)
+ 1. create a new user like dep1b1card1man@gmail.com and approve it from admin panel then set as card manager
+ 1. card admin can assign memeber for any task in check list tab in card
+ 
 ### set card details and subtasks
 
 ![](demo-card-details-subtask.gif)
