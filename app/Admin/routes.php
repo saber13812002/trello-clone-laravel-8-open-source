@@ -15,5 +15,6 @@ Route::group([
     $router->resource('users', UserController::class);
     $router->resource('departments', DepartmentController::class);
     $router->resource('boards', BoardController::class);
+    $router->resource('board-cards', BoardCardController::class);
 });
 
