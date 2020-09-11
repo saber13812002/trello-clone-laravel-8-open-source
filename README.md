@@ -19,6 +19,8 @@ You can install using the following way:
 - Clone the project git clone `git@github.com:saber13812002/trello-clone-laravel-7-taskulu-open-source.git`
 - Run `composer install` inside the directory composer install
 - Create database and run migrations `php artisan migrate`
+- change ``app.php`` in config folder locale to ``en`` or ``fa`` and also ``fallback_locale``
+- change the `admin.php` config file in config folder default language to ``en``
 - Run the server `php artisan serve`
 - Run `php artisan admin:create-user`
 - login into localhost:8000/admin
@@ -88,7 +90,7 @@ if this user set as admin for two or more departments he can see his dep name in
  1. create a new user like dep1b1card1man@gmail.com and approve it from admin panel then set as card manager
  1. card manager can assign memeber for any task via (check list tab) in card
  1. system admin can change card's managers via admin panel : http://localhost:8000/admin/board-cards
- 
+
 
 ### set card details and subtasks
 
