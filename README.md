@@ -41,9 +41,44 @@ You can install using the following way:
  - add tags and comments and description and checklist to the cards
  - Support Jalali calendar and gerigorian calendar and Hijri Calendar
  - new features here: [ branches ](https://github.com/saber13812002/trello-clone-laravel-7-taskulu-open-source/branches)
+ - add menu into admin panel :
+
+         - departments
+         - logs
+         - users
+         - boards
 
 ![](demo-card-color-and-tag.gif)
 
+
+### steps:
+ 1. installation
+ 1. admin login
+ 1. admin need to define departments
+ 1. then need to register new user as department admin. Note: new users cant create board.
+![](first-user-cant-create-board-just-dep-admin-can.png)
+this is dashboard page. all new users cant see the button to create new board. just dep admin can.
+     -first you to need approve any user
+![](how-can-you-approve-new-users-by-admin-panel.png) 
+     -second need to set this user as department admin
+![](create-new-department-set-admin.png)    
+
+ 1. next admin need to grant access to dep.admin ( login to admin panel for example http://localhost:8000/admin/users/1 open this first user and change status to 1)
+ 1. next is (dep.admin) create his boards
+![](when-dep-admin-logged-in.png)
+this is dashboard for admin when he can create new board
+![](create-new-board-as-b1-in-dep1.png)
+ 1. another new user need to register as board1dep1manager@gmail.com for example
+![](board1dep1manager.png)
+you should enable this new user by admin panel before he want to login.
+all unapprover users cant login
+ 1. dep admin can set all approved user as board manager
+ 1. System admin can set any approved user as board admin
+ 1. after create boards, dep admin can set manager later from board setting
+ ![](dep-admin-can-set-another-manager-later-from-board-setting.png)
+ 1. board manager see his boards Green color
+ ![](board-manager-see-its-board-green.png)
+if this user set as admin for two or more departments he can see his dep name in separate section
 
 ### set card details and subtasks
 
@@ -86,47 +121,6 @@ Laravel has the most extensive and thorough [documentation](https://laravel.com/
 
 If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
 
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- [UserInsights](https://userinsights.com)
-- [Fragrantica](https://www.fragrantica.com)
-- [SOFTonSOFA](https://softonsofa.com/)
-- [User10](https://user10.com)
-- [Soumettre.fr](https://soumettre.fr/)
-- [CodeBrisk](https://codebrisk.com)
-- [1Forge](https://1forge.com)
-- [TECPRESSO](https://tecpresso.co.jp/)
-- [Runtime Converter](http://runtimeconverter.com/)
-- [WebL'Agence](https://weblagence.com/)
-- [Invoice Ninja](https://www.invoiceninja.com)
-- [iMi digital](https://www.imi-digital.de/)
-- [Earthlink](https://www.earthlink.ro/)
-- [Steadfast Collective](https://steadfastcollective.com/)
-- [We Are The Robots Inc.](https://watr.mx/)
-- [Understand.io](https://www.understand.io/)
-- [Abdel Elrafa](https://abdelelrafa.com)
-- [Hyper Host](https://hyper.host)
-- [Appoly](https://www.appoly.co.uk)
-- [OP.GG](https://op.gg)
-- [云软科技](http://www.yunruan.ltd/)
-
-## Installation
-You can install using the following way:
-- Clone the project git clone `git@github.com:zeeshanu/dingo-project-management.git`
-- Run `composer install` inside the directory composer install
-- Create database and run migrations `php artisan migrate`
-- Run the server `php artisan serve`
 
 
 ## Contributing
