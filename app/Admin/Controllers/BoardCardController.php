@@ -3,6 +3,7 @@
 namespace App\Admin\Controllers;
 
 use App\Models\BoardCard;
+use App\Models\User;
 use Encore\Admin\Controllers\AdminController;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
@@ -33,10 +34,15 @@ class BoardCardController extends AdminController
         $grid->column('card_title', __('Card title'));
         $grid->column('card_description', __('Card description'));
         $grid->column('card_color', __('Card color'));
+        // $grid->column('owner_id', __('Owner id'));
+        
+        $grid->owner_id(__('models.name_of_user'))->display(function ($owner_id) {
+            return ($owner_id ? User::find($owner_id)->name : null);
+        });
+
         $grid->column('due_date', __('Due date'));
         $grid->column('created_at', __('Created at'));
         $grid->column('updated_at', __('Updated at'));
-        $grid->column('owner_id', __('Owner id'));
 
         return $grid;
     }
@@ -58,10 +64,17 @@ class BoardCardController extends AdminController
         $show->field('card_title', __('Card title'));
         $show->field('card_description', __('Card description'));
         $show->field('card_color', __('Card color'));
+        
+        // $show->field('owner_id', __('Owner id'));
+        $users = User::all()->toArray();
+        $usersArray = [];
+        foreach ($users as $item) {
+            $usersArray[$item['id']] = $item['name'];
+        }
+
         $show->field('due_date', __('Due date'));
         $show->field('created_at', __('Created at'));
         $show->field('updated_at', __('Updated at'));
-        $show->field('owner_id', __('Owner id'));
 
         return $show;
     }
@@ -81,8 +94,12 @@ class BoardCardController extends AdminController
         $form->text('card_title', __('Card title'));
         $form->text('card_description', __('Card description'));
         $form->text('card_color', __('Card color'));
+        
+        //$form->number('owner_id', __('Owner id'));
+        $form->select('owner_id', __('models.name_of_user'))->options(User::all()->pluck('name', 'id'));
+
         $form->datetime('due_date', __('Due date'))->default(date('Y-m-d H:i:s'));
-        $form->number('owner_id', __('Owner id'));
+
 
         return $form;
     }
