@@ -4,7 +4,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Support\Facades\Schema;
 
-class UpdateBoardCardTable extends Migration
+class UpdateCardTaskTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,9 @@ class UpdateBoardCardTable extends Migration
      */
     public function up()
     {
-        Schema::table('board_card', function (Blueprint $table) {
-            $table->unsignedInteger('owner_id')->after('list_id')->nullable();
+        Schema::table('card_task', function (Blueprint $table) {
+            $table->unsignedInteger('owner_id')->after('card_id')->nullable();
             $table->foreign('owner_id')->references('id')->on('users');
-            //updateCardownerid
         });
     }
 
@@ -27,7 +26,7 @@ class UpdateBoardCardTable extends Migration
      */
     public function down()
     {
-        Schema::table('board_card', function (Blueprint $table) {
+        Schema::table('card_task', function (Blueprint $table) {
             $table->dropForeign(['owner_id']);
             $table->dropColumn('owner_id');
         });
