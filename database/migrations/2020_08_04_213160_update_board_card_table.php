@@ -13,7 +13,7 @@ class UpdateBoardCardTable extends Migration
     public function up()
     {
         Schema::table('board_card', function (Blueprint $table) {
-            $table->unsignedInteger('owner_id')->nullable();            
+            $table->unsignedInteger('owner_id')->after('list_id')->nullable();
             $table->foreign('owner_id')->references('id')->on('users');
             //updateCardownerid
         });
@@ -26,6 +26,9 @@ class UpdateBoardCardTable extends Migration
      */
     public function down()
     {
-        Schema::dropColumn('owner_id');
+        Schema::table('board_card', function (Blueprint $table) {
+            $table->dropForeign(['owner_id']);
+            $table->dropColumn('owner_id');
+        });
     }
 }

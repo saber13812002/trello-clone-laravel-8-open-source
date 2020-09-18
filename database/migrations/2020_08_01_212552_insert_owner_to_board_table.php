@@ -14,7 +14,7 @@ class InsertOwnerToBoardTable extends Migration
     public function up()
     {
         Schema::table('board', function (Blueprint $table) {
-            $table->unsignedInteger('owner_id')->nullable();            
+            $table->unsignedInteger('owner_id')->nullable();
             $table->foreign('owner_id')->references('id')->on('users');
         });
     }
@@ -26,6 +26,8 @@ class InsertOwnerToBoardTable extends Migration
      */
     public function down()
     {
-        Schema::dropColumn('owner_id');
+        Schema::table('board', function (Blueprint $table) {
+            $table->dropColumn('owner_id');
+        });
     }
 }

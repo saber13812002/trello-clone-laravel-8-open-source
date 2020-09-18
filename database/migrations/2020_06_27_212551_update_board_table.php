@@ -13,9 +13,8 @@ class UpdateBoardTable extends Migration
     public function up()
     {
         Schema::table('board', function (Blueprint $table) {
-            $table->unsignedInteger('department_id')->nullable();            
+            $table->unsignedInteger('department_id')->nullable();
             $table->foreign('department_id')->references('id')->on('departments');
-
         });
     }
 
@@ -26,6 +25,8 @@ class UpdateBoardTable extends Migration
      */
     public function down()
     {
-        Schema::dropColumn('department');
+        Schema::table('board', function (Blueprint $table) {
+            $table->dropColumn('department_id');
+        });
     }
 }
