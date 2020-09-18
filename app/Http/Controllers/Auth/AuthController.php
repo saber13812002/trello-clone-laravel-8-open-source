@@ -71,7 +71,7 @@ class AuthController extends Controller
         ]);
 
         if ($user && $user->id > 0) {
-            Bot::sendMsg('user created');
+            // Bot::sendMsg('user created');
         }
 
         return $user;

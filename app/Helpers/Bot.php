@@ -2,7 +2,8 @@
 
 namespace App\Helpers;
 
-use Telegram\Bot\Api;
+// TODO when bot version 4 come for help us
+// use Telegram\Bot\Api;
 
 
 class Bot

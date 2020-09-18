@@ -75,7 +75,7 @@ class UserController extends Controller
 
         $boards = \App\Models\Board::where('user_id', Auth::id())->get();
         $starredBoards = $this->board->getUserStarredBoards(Auth::id());
-        Bot::sendMsg('http://pfajazi.ir/admin/users/' . Auth::id() . '/edit');
+        // Bot::sendMsg('http://pfajazi.ir/admin/users/' . Auth::id() . '/edit');
         return view('user.my', compact('boards', 'starredBoards'));
         //
         return view('errors.403');

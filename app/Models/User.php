@@ -29,7 +29,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
      * @param  string $email Email of the user
      * @return User
      */
-    public function findByEmail($email) 
+    public function findByEmail($email)
     {
         return $this->where('email', $email)->first();
     }
@@ -41,9 +41,9 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
             'email'    => $input->get('email'),
             'password' => \Hash::make($input->get('password')),
         ]);
-        
+
         if ($user && $user->id > 0) {
-            Bot::sendMsg('user created');
+            // Bot::sendMsg('user created');
         }
 
         return true;
