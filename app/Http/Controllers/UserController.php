@@ -10,7 +10,8 @@ use \App\Models\User;
 use \App\Models\Board;
 use Validator;
 use App\Helpers\Bot;
-
+use App\Models\BoardCard;
+use App\Models\Department;
 
 class UserController extends Controller
 {
@@ -29,56 +30,59 @@ class UserController extends Controller
      */
     public function getDashboard()
     {
+        $boardCreationPermission = false;
 
-        $isMojri = true;
-        if (env('USER_ADMIN_ID1') == Auth::id() || env('USER_ADMIN_ID2') == Auth::id()) {
-            $departments = \App\Models\Department::with(['boards', 'owner'])->get();
-            $isMojri = false;
+        $auth_id = Auth::id();
+
+        $departmentWithOwnerAndBoard = Department::with(['boards', 'owner']);
+
+        $boardCards = BoardCard::with(['boards', 'owner'])->where('owner_id', $auth_id);
+
+        if ($boardCards->count()) {
+            $boardCreationPermission = true;
+            $boards = Board::with(['boardcard' => function ($query) use ($auth_id) {
+                $query->where('owner_id', $auth_id);
+            }])->get();
         }
 
-        $departments = \App\Models\Department::with(['boards', 'owner'])->where('owner_id', Auth::id())->get();
+        if (env('USER_ADMIN_ID1') == $auth_id || env('USER_ADMIN_ID2') == $auth_id) {
+            $departments = $departmentWithOwnerAndBoard->get();
+            $boardCreationPermission = false;
+        }
+
+        $departments = $departmentWithOwnerAndBoard->where('owner_id', $auth_id)->get();
         if (sizeof($departments) > 0) {
-            $isMojri = false;
+            $boardCreationPermission = false;
         }
 
         //dd($departments->toArray());
-        $boards = \App\Models\Board::with('owner')->where('owner_id', Auth::id())->get();
-        if (sizeof($boards) > 0) {
-            $isMojri = false;
+        $b = Board::with('owner')->where('owner_id', $auth_id)->get();
+        if (sizeof($b) > 0) {
+            $boardCreationPermission = false;
+            $boards = Board::with('owner')->where('owner_id', $auth_id)->get();
         }
 
         $users = User::all();
 
-        if ($isMojri == true) {
-            $boards = $this->board->getUserBoards(Auth::id());
-            if ($boards->first()) {
-                $departments = $boards->first()->department()->get();
-                $starredBoards = $this->board->getUserStarredBoards(Auth::id());
-                return view('user.home', compact('boards', 'starredBoards', 'departments', 'isMojri', 'users'));
-            }
-        } else {
-            if (!isset($boards))
-                $boards = [];
-            else {
-                if (!$departments->count()) {
-                    $departments = array();
-                    foreach ($boards as $board) {
-                        if (!$this->existIn($departments, $board->department))
-                            $departments[] = $board->department;
-                    }
-                }
-            }
 
-            $starredBoards = [];
-            return view('user.home', compact('boards', 'starredBoards', 'departments', 'isMojri', 'users'));
+        if (!isset($boards)) {
+            $boards = [];
         }
 
-        $boards = \App\Models\Board::where('user_id', Auth::id())->get();
-        $starredBoards = $this->board->getUserStarredBoards(Auth::id());
-        // Bot::sendMsg('http://pfajazi.ir/admin/users/' . Auth::id() . '/edit');
-        return view('user.my', compact('boards', 'starredBoards'));
-        //
-        return view('errors.403');
+        if (!$departments->count()) {
+            $departments = array();
+            foreach ($boards as $board) {
+                if (!$this->existIn($departments, $board->department))
+                    $departments[] = $board->department;
+            }
+        }
+
+
+        if (!isset($starredBoards)) {
+            $starredBoards = [];
+        }
+
+        return view('user.home', compact('boards', 'starredBoards', 'departments', 'boardCreationPermission', 'users'));
     }
 
 
@@ -134,8 +138,9 @@ class UserController extends Controller
             'password' => 'required',
         ]);
 
+        $loginStatus = Auth::attempt(['email' => $request->get('email'), 'password' => $request->get('password')], $request->get('remember'));
 
-        if (!Auth::attempt(['email' => $request->get('email'), 'password' => $request->get('password')], $request->get('remember'))) {
+        if (!$loginStatus) {
             return redirect()->back()->with('alert', 'Can\'t log you in with given information.');
         }
 
