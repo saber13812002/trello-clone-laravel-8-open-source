@@ -1,0 +1,206 @@
+{
+	"info": {
+		"_postman_id": "6e6ecc8d-80a6-42ff-9d92-868fcb79786e",
+		"name": "trello",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://localhost:8000/board/post-group",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "asdfasdf",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "fdfdfdf",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8000/post-group",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"post-group"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8000/board/postCard",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Connection",
+						"value": "keep-alive"
+					},
+					{
+						"key": "Pragma",
+						"value": "no-cache"
+					},
+					{
+						"key": "Cache-Control",
+						"value": "no-cache"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json, text/javascript, */*; q=0.01"
+					},
+					{
+						"key": "X-Requested-With",
+						"value": "XMLHttpRequest"
+					},
+					{
+						"key": "User-Agent",
+						"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded; charset=UTF-8"
+					},
+					{
+						"key": "Origin",
+						"value": "http://localhost:8000"
+					},
+					{
+						"key": "Sec-Fetch-Site",
+						"value": "same-origin"
+					},
+					{
+						"key": "Sec-Fetch-Mode",
+						"value": "cors"
+					},
+					{
+						"key": "Sec-Fetch-Dest",
+						"value": "empty"
+					},
+					{
+						"key": "Referer",
+						"value": "http://localhost:8000/board/2"
+					},
+					{
+						"key": "Accept-Language",
+						"value": "en-US,en;q=0.9"
+					},
+					{
+						"key": "Cookie",
+						"value": "rocketchatscreenshare=chrome; rocketchatscreenshare=chrome; remember_admin_59ba36addc2b2f9401580f014c7f58ea4e30989d=eyJpdiI6IjVOSzRqMDd1VU9nTW8wTEhBRmFiY2c9PSIsInZhbHVlIjoiRWV4K0ozUldRS2VqdFFwbVwvcTNnMzloQ2dRMHlTaEZZcHJJZUVRSHhkeHpJOU5NUDlHSCsxdU1RVHE2WXV2Y0dPMzdCR09wMVp4QlFHMjJWVEdGVHFWcEtkdjhYcXJjU2FCOXk0cTB0cVwvdHArYzhOU1RmZU1HZHFvczQra2UwT0gyT2ZqdDFDYnJPczZQTzBmOXROVFA2VTlQRWJ1Y2NvdG9zRmc1V1ViVG89IiwibWFjIjoiMWU5ZWIzZjZhZmY0NjAwMWEwNWQwNTZiZDVhMGM1MGIxMjQ4MDY4YTZiYjI3ZjI1ZmFlMzFiMDVjNThjOTY4MyJ9; PHPSESSID=cuvq5ful0e62ovan1lsuh1agcf; _ga=GA1.1.899185860.1587839441; laravel_session=Cpeaw7ra64VMXHYAk2l3c9YXiQVsbpM4FHla6G92"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "card-title=asdasd&list_id=4&board_id=2"
+				},
+				"url": {
+					"raw": "http://localhost:8000/board/postCard",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"board",
+						"postCard"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8000/board/post-group",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Connection",
+						"value": "keep-alive"
+					},
+					{
+						"key": "Pragma",
+						"value": "no-cache"
+					},
+					{
+						"key": "Cache-Control",
+						"value": "no-cache"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json, text/javascript, */*; q=0.01"
+					},
+					{
+						"key": "X-Requested-With",
+						"value": "XMLHttpRequest"
+					},
+					{
+						"key": "User-Agent",
+						"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded; charset=UTF-8"
+					},
+					{
+						"key": "Origin",
+						"value": "http://localhost:8000"
+					},
+					{
+						"key": "Sec-Fetch-Site",
+						"value": "same-origin"
+					},
+					{
+						"key": "Sec-Fetch-Mode",
+						"value": "cors"
+					},
+					{
+						"key": "Sec-Fetch-Dest",
+						"value": "empty"
+					},
+					{
+						"key": "Referer",
+						"value": "http://localhost:8000/board/2"
+					},
+					{
+						"key": "Accept-Language",
+						"value": "en-US,en;q=0.9"
+					},
+					{
+						"key": "Cookie",
+						"value": "rocketchatscreenshare=chrome; rocketchatscreenshare=chrome; remember_admin_59ba36addc2b2f9401580f014c7f58ea4e30989d=eyJpdiI6IjVOSzRqMDd1VU9nTW8wTEhBRmFiY2c9PSIsInZhbHVlIjoiRWV4K0ozUldRS2VqdFFwbVwvcTNnMzloQ2dRMHlTaEZZcHJJZUVRSHhkeHpJOU5NUDlHSCsxdU1RVHE2WXV2Y0dPMzdCR09wMVp4QlFHMjJWVEdGVHFWcEtkdjhYcXJjU2FCOXk0cTB0cVwvdHArYzhOU1RmZU1HZHFvczQra2UwT0gyT2ZqdDFDYnJPczZQTzBmOXROVFA2VTlQRWJ1Y2NvdG9zRmc1V1ViVG89IiwibWFjIjoiMWU5ZWIzZjZhZmY0NjAwMWEwNWQwNTZiZDVhMGM1MGIxMjQ4MDY4YTZiYjI3ZjI1ZmFlMzFiMDVjNThjOTY4MyJ9; PHPSESSID=cuvq5ful0e62ovan1lsuh1agcf; _ga=GA1.1.899185860.1587839441; laravel_session=7sgX85xQejIAfxmhTquIopZVRWKLJvGMlGidiDXW"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "name=asdasd&description=asdasd&user_id=1&board_id=2"
+				},
+				"url": {
+					"raw": "http://localhost:8000/board/post-group",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"board",
+						"post-group"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
