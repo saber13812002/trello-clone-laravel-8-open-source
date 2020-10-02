@@ -60,8 +60,8 @@ class BoardCard extends Model
             DB::raw("COUNT(comment.id) as totalComments"),
             'users.name as ownerName'
         ])
-        ->leftJoin('comment', 'board_card.id', '=', 'comment.card_id')
-        ->leftJoin('users', 'users.id', '=', 'board_card.owner_id')
+            ->leftJoin('comment', 'board_card.id', '=', 'comment.card_id')
+            ->leftJoin('users', 'users.id', '=', 'board_card.owner_id')
             ->groupBy('board_card.id')
             ->get();
     }
@@ -75,5 +75,29 @@ class BoardCard extends Model
             ->leftJoin('card_task', 'board_card.id', '=', 'card_task.card_id')
             ->groupBy('board_card.id')
             ->get();
+    }
+
+    /**
+     * Get the borads for this boardCard.
+     */
+    public function boards()
+    {
+        return $this->belongsTo('App\Models\Board', 'board_id');
+    }
+    // public function boardsOwner($owner_id)
+    // {
+    //     return $this->belongsTo('App\Models\Board', 'board_id')
+    //         ;
+    // }
+
+    public static function getDepartmentIdByUserId($user_id)
+    {
+        $department = Department::where('owner_id', $user_id)->firstOrFail();
+        return $department->id;
+    }
+
+    public function owner()
+    {
+        return $this->belongsTo('App\Models\User', 'owner_id');
     }
 }

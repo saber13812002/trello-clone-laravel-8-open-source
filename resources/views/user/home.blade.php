@@ -67,7 +67,7 @@
             @endforelse
 
 
-            @if(!$isMojri)
+            @if(!$boardCreationPermission)
             <div class="col-lg-3">
                 <a data-toggle="modal" href='#create-new-board' class="board-create-link">
                     <div class="board-create">
