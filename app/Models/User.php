@@ -65,4 +65,13 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
     {
         return $this->hasMany('App\Models\Board');
     }
+
+    /**
+     * get user full name by Id
+     * 
+     */
+    public function fullName()
+    {
+        return $this->name;
+    }
 }

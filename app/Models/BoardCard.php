@@ -96,6 +96,13 @@ class BoardCard extends Model
         return $department->id;
     }
 
+
+    /**
+     * Define relation to User table with owner_id.
+     *
+     * @param  string  $value
+     * @return void
+     */
     public function owner()
     {
         return $this->belongsTo('App\Models\User', 'owner_id');
