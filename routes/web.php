@@ -54,7 +54,7 @@ Route::group(
         Route::post('/postCard', ['uses' => 'CardController@postCard',]);
         Route::post('/changeCardList', ['uses' => 'CardController@changeCardList',]);
         Route::post('/deleteCard', ['uses' => 'CardController@deleteCard',]);
-        Route::post('/getCardDetail', ['uses' => 'CardController@getCardDetail',]);
+        Route::post('/getCardDetail', ['uses' => 'CardController@getCardDetail',]); //card_task
         Route::post('/update-card-data', ['uses' => 'CardController@updateCardData',]);
 
         Route::post('/save-comment', ['uses' => 'CommentController@saveComment',]);
@@ -69,7 +69,6 @@ Route::group(
 
         Route::post('/create-board-member', ['uses' => 'BoardMemberController@create',]);
         Route::post('postBoard', ['middleware' => 'auth', 'uses' => 'BoardController@postBoard',]);
-
     }
 );
 

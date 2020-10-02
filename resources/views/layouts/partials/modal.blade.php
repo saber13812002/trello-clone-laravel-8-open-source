@@ -235,10 +235,21 @@
                             </form>
                         </div>
                         <div role="tabpanel" class="tab-pane" id="subtasks">
+                            برای تغییر مجری هر کار باید آن را پاک کنید و مجددا با همان عنوان به دیگری واگذار کنید
                             <div class="addSubTaskCon">
-                                <h2>اضافه کردن یک کار به عنوان زیرشاخه</h2>
+                                <h2>1اضافه کردن یک کار به عنوان زیرشاخه</h2>
                                 <div class="input-group">
-                                    <input type="text" class="form-control" id="task-description-input" required="required">
+                                    <input type="text" class="form-control task-title" id="task-description-input" required="required">
+                                    <div class="selectize-control single rtl">
+                                        <select id="task-owner-select">
+                                            <option value="">انتخاب شخص...</option>
+                                            @if(isset($users))
+                                            @foreach($users as $user)
+                                            <option value="{{ $user['id'] }}">{{ $user["name"] }}</option>
+                                            @endforeach
+                                            @endif
+                                        </select>
+                                    </div>
                                     <span class="input-group-btn">
                                         <button type="button" class="btn btn-default" id="submit-task">اضافه</button>
                                     </span>

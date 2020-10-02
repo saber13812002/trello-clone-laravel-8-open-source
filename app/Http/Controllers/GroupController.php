@@ -67,7 +67,7 @@ class GroupController extends Controller
         return [
             "card" => $this->boardCard->getCard($request->get("cardId")),
             "label" => $this->cardTag->getCardTag($request->get("cardId")),
-            "task" => $this->cardTask->getCardTasks($request->get("cardId")),
+            "task" => $this->cardTask->getCardTasks($request->get("cardId")), //card_task
             "comment" => $this->comment->getCardComment($request->get("cardId")),
         ];
     }

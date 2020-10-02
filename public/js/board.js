@@ -174,9 +174,11 @@ $(document).ready(function () {
                 var cardId = $(document)
                     .find("#card-detail")
                     .attr("data-cardid");
+                var taskOwnerId = $(document).find("#task-owner-select").val();
+                //console.log(taskOwnerId);
                 if (taskTitle.length > 0) {
                     event.preventDefault();
-                    that.saveTask(taskTitle, cardId);
+                    that.saveTask(taskTitle, taskOwnerId, cardId);
                 }
             });
 
@@ -434,7 +436,7 @@ $(document).ready(function () {
                 },
             });
         },
-        saveTask: function (taskTitle, cardId) {
+        saveTask: function (taskTitle, taskOwnerId, cardId) {
             var that = this;
             $.ajax({
                 url: "save-task",
@@ -442,6 +444,7 @@ $(document).ready(function () {
                 dataType: "json",
                 data: {
                     taskTitle: taskTitle,
+                    taskOwnerId: taskOwnerId,
                     cardId: cardId,
                 },
                 success: function (data) {
@@ -462,7 +465,9 @@ $(document).ready(function () {
                         data.card["id"] +
                         '">' +
                         data.card["task_title"] +
-                        "</label>" +
+                        " - " +
+                        data.card["owner"];
+                    "</label>" +
                         "</div>" +
                         '<div class="col-lg-1">' +
                         '<a href="" class="delete-task" data-taskId="' +
@@ -877,7 +882,9 @@ $(document).ready(function () {
                             val.id +
                             '">' +
                             val.task_title +
-                            "</label>" +
+                            " - " +
+                            val.owner;
+                        "</label>" +
                             "</div>" +
                             '<div class="col-lg-1">' +
                             '<a href="" class="delete-task" data-taskId="' +

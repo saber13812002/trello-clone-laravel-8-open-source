@@ -75,9 +75,9 @@ class CardController extends Controller
         return [
             "card" => $this->boardCard->getCard($request->get("cardId")),
             "label" => $this->cardTag->getCardTag($request->get("cardId")),
-            "task" => $this->cardTask->getCardTasks($request->get("cardId")),
+            "task" => $this->cardTask->getCardTasks($request->get("cardId")), //card_task
             "comment" => $this->comment->getCardComment($request->get("cardId")),
-        ];     
+        ];
     }
 
     /**
@@ -89,7 +89,7 @@ class CardController extends Controller
     {
         $this->cardTag->deleteCardTag($request->get("cardId"));
         $this->cardTag->createCardTag($request);
-        $this->boardCard->updateCard($request); //updateCardownerid
+        $this->boardCard->updateCard($request); //updateCardownerid card_task
 
         return [
             "cardTitle" => $request->get("cardName"),
