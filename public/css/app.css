@@ -491,6 +491,14 @@ a.nav-profile {
     color: rgb(95, 90, 85);
 }
 
+.sub-task-owner {
+    font-size: 13px;
+    font-weight: 600;
+    font-family: monospace;
+    line-height: 1.5em;
+    color: rgb(95, 90, 85);
+}
+
 .delete-task {
     color: #a94442;
     display: none;

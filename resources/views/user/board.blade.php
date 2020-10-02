@@ -72,7 +72,7 @@
                                 <input type="hidden" name="board_id" value="{{ $boardDetail['id'] }}">    
                             </div>
                             <div class="form-group" style="margin-bottom: 0px;">
-                                <button type="submit" class="btn btn-primary" id="saveCard">ذخیره</button> <span class="glyphicon glyphicon-remove close-input-field" aria-hidden="true"></span>
+                                <button type="submit" class="btn btn-primary saveCard" id="saveCard">ذخیره</button> <span class="glyphicon glyphicon-remove close-input-field" aria-hidden="true"></span>
                             </div>
                         </form>
                     </div>
