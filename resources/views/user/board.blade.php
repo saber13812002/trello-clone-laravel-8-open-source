@@ -47,7 +47,12 @@
                                                         @endif
                                                         @if($card['ownerName'] ) 
                                                             <li id="ownerName">
-                                                                <a href="#" data-placement="bottom" data-toggle="tooltip" title="مجری: {{ $card['ownerName'] }} ." data-totalComments="{{ $card['ownerName'] }}"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></a>
+                                                                <a href="#" data-placement="bottom" data-toggle="tooltip" title="مدیر کارت: {{ $card['ownerName'] }} ." data-totalComments="{{ $card['ownerName'] }}"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></a>
+                                                            </li>
+                                                        @endif
+                                                        @if($card['owner_id'] == $authId ) 
+                                                            <li id="mojri">
+                                                                <a href="#" data-placement="bottom" data-toggle="tooltip" title="شما مدیر هستید" ><span class="glyphicon glyphicon-star" aria-hidden="true"></span></a>
                                                             </li>
                                                         @endif
                                                     </ul>
