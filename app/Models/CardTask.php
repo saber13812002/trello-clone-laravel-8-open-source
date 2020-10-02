@@ -43,7 +43,7 @@ class CardTask extends Model
         return $this->create([
             "task_title" => $input->get("taskTitle"),
             "card_id" => $input->get("cardId"),
-            "owner_id" => $input->get("taskOwnerId"),
+            "owner_id" => $input->get("taskOwnerId") ?: null,
             "is_completed" => 0,
         ]);
     }
@@ -65,5 +65,6 @@ class CardTask extends Model
                 return $user->fullname();
             }
         }
+        return "تعیین نشده";
     }
 }

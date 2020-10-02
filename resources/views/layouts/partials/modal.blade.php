@@ -235,6 +235,7 @@
                             </form>
                         </div>
                         <div role="tabpanel" class="tab-pane" id="subtasks">
+                            برای تغییر مجری هر کار باید آن را پاک کنید و مجددا با همان عنوان به دیگری واگذار کنید
                             <div class="addSubTaskCon">
                                 <h2>1اضافه کردن یک کار به عنوان زیرشاخه</h2>
                                 <div class="input-group">
