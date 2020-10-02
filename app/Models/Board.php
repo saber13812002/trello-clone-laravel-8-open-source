@@ -16,7 +16,7 @@ class Board extends Model
 
     public function getUserBoards($user_id)
     {
-        //        $group_ids=$this->;
+        // $this::with('boardcard.')
         return $this::with('owner')->where(['user_id' => $user_id,])->get();
     }
 
@@ -76,5 +76,11 @@ class Board extends Model
         $board->owner_id = $boardAdminUserId;
         $board->save();
         return true;
+    }
+
+
+    public function boardcard()
+    {
+        return $this->hasMany(BoardCard::class);
     }
 }
