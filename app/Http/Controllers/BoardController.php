@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
@@ -55,15 +56,16 @@ class BoardController extends Controller
      */
     public function getBoardDetail(Request $request)
     {
+        $authId = Auth::id();
         $boardDetail = $this->board->getBoard($request->id);
         $lists = $this->boardList->getBoardList($request->id);
         $cards = json_decode(json_encode($this->boardCard->getBoardCards()), True);
         $cardTaskCount = json_decode(json_encode($this->boardCard->cardTotalTask()), True);
-        $boards = $this->board->getUserBoards(Auth::id());
-        $recentBoards = $this->board->getUserRecentBoards(Auth::id());
+        $boards = $this->board->getUserBoards($authId);
+        $recentBoards = $this->board->getUserRecentBoards($authId);
         $users = User::all();
 
-        return view('user.board', compact('boardDetail', 'lists', 'cards', 'cardTaskCount', 'boards', 'recentBoards', 'users'));
+        return view('user.board', compact('boardDetail', 'lists', 'cards', 'cardTaskCount', 'boards', 'recentBoards', 'users', 'authId'));
     }
 
     /**
@@ -78,10 +80,10 @@ class BoardController extends Controller
 
     public function setBaordAdmin(Request $request)
     {
-        $this->board->setBaordAdmin($request);   
+        $this->board->setBaordAdmin($request);
 
         return [
-            'success' => 'success', 
+            'success' => 'success',
         ];
     }
 }
