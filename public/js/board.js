@@ -1087,7 +1087,7 @@ $(document).ready(function () {
                         .find(elementId)
                         .selectize();
                     $select[0].selectize.setValue(opt);
-                    if ($select[0].selectize) {
+                    if (opt) {
                         $select[0].selectize.options[opt].selected = true;
                     }
                     //$select[0].selectize.setValue(opt);
