@@ -1087,7 +1087,9 @@ $(document).ready(function () {
                         .find(elementId)
                         .selectize();
                     $select[0].selectize.setValue(opt);
-                    $select[0].selectize.options[opt].selected = true;
+                    if ($select[0].selectize) {
+                        $select[0].selectize.options[opt].selected = true;
+                    }
                     //$select[0].selectize.setValue(opt);
                     break; // updateCardownerid
                 case "#select-board":
