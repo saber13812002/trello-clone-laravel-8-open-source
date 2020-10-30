@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\URL;
 
 class RedirectIfAuthenticated
 {
@@ -21,8 +22,16 @@ class RedirectIfAuthenticated
             return redirect('/dashboard');
         }
 
-        // if (!\App::environment('local')) {
-        //     \URL::forceSchema('https');
+        // if (!$this->app->environment('local')) {
+        //     URL::forceSchema('https');
+        // }
+
+        // if (Auth::guard($guard)->check()) {
+        //     // the following 3 lines
+        //     if (Auth::user()->is_admin) {
+        //         return redirect('/admin');
+        //     }
+        //     return redirect('/home');
         // }
 
         return $next($request);
