@@ -71,7 +71,7 @@
                                             @if($card['owner_id'] == $authId )
                                             <li id="mojri">
                                                 <a href="#" data-placement="bottom" data-toggle="tooltip"
-                                                    title="شما مدیر هستید"><span class="glyphicon glyphicon-star"
+                                                    title="You are the manager - شما مدیر هستید"><span class="glyphicon glyphicon-star"
                                                         aria-hidden="true"></span></a>
                                             </li>
                                             @endif
@@ -83,7 +83,7 @@
                             @endforeach
                         </div>
                     </ul>
-                    <a href="#" class="show-input-field">کارت جدید..</a>
+                    <a href="#" class="show-input-field">New Card - کارت جدید..</a>
                     <form action="" method="POST" role="form" style="display: none;">
                         @csrf
                         <div class="form-group" id="dynamic-board-input-con" style="margin-bottom: 8px;">
@@ -92,7 +92,7 @@
                             <input type="hidden" name="board_id" value="{{ $boardDetail['id'] }}">
                         </div>
                         <div class="form-group" style="margin-bottom: 0px;">
-                            <button type="submit" class="btn btn-primary saveCard" id="saveCard">ذخیره</button> <span
+                            <button type="submit" class="btn btn-primary saveCard" id="saveCard">Store - ذخیره</button> <span
                                 class="glyphicon glyphicon-remove close-input-field" aria-hidden="true"></span>
                         </div>
                     </form>
@@ -103,7 +103,7 @@
         <div class="bcategory-list">
             <div class="panel panel-default">
                 <div class="panel-body">
-                    <a href="#" class="show-input-field">اضافه کردن لیست</a>
+                    <a href="#" class="show-input-field">Add List - اضافه کردن لیست</a>
                     <form action="" class="add-board-list-form" method="POST" role="form" style="display: none;">
                         @csrf
                         <div class="form-group" id="dynamic-board-input-con" style="margin-bottom: 8px;">
@@ -111,7 +111,7 @@
                             <input type="hidden" name="board_id" value="{{ $boardDetail['id'] }}">
                         </div>
                         <div class="form-group" style="margin-bottom: 0px;">
-                            <button type="submit" class="btn btn-primary" id="saveListName">ذخیره</button> <span
+                            <button type="submit" class="btn btn-primary" id="saveListName">Store - ذخیره</button> <span
                                 class="glyphicon glyphicon-remove close-input-field" aria-hidden="true"></span>
                         </div>
                     </form>

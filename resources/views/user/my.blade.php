@@ -3,7 +3,7 @@
 @section('content')
 <div class="board-list-con" style="padding-left: 10px !important; padding-top: 40px !important; padding-right: 0px; padding-bottom: 0px;">
     <div class="my-fv-board">
-        <h1 class="board-starred-heading" style="margin-top: 10px;margin-left: 15px;font-weight: 500;font-size: 25px;"><span class="glyphicon glyphicon-star-empty starred-boards" aria-hidden="true"></span> بوردهای ستاره دار</h1>
+        <h1 class="board-starred-heading" style="margin-top: 10px;margin-left: 15px;font-weight: 500;font-size: 25px;"><span class="glyphicon glyphicon-star-empty starred-boards" aria-hidden="true"></span>@lang('Starred boards')</h1>
         <div class="row boards-col">
             @forelse($starredBoards as $board)
             <div class="col-lg-3" data-boardid="{{ $board->id }}">
@@ -21,14 +21,14 @@
             </div>
             @empty
             <h2 class="board-create-head">
-                بورد ستاره دار وجود ندارد
+                @lang('There is no starred board')
             </h2>
             @endforelse
         </div>
     </div>
     <div class="my-board">
 
-        <h1 class="board-starred-heading" style="margin-top: 10px;margin-left: 15px;font-weight: 500;font-size: 25px;"><span class="glyphicon glyphicon-home starred-boards" aria-hidden="true"></span> دپارتمان ها</h1>
+        <h1 class="board-starred-heading" style="margin-top: 10px;margin-left: 15px;font-weight: 500;font-size: 25px;"><span class="glyphicon glyphicon-home starred-boards" aria-hidden="true"></span>@lang('Departments')</h1>
 
 
         <div class="row boards-col">
@@ -62,7 +62,7 @@
             </div>
             @empty
             <h2 class="board-create-head">
-                هیچ بوردی در این دپارتمان بعنوان مجری یا مدیر به شما اختصاص ندارد </h2>
+                There is no board in this department for you as an administrator or manager - هیچ بوردی در این دپارتمان بعنوان مجری یا مدیر به شما اختصاص ندارد </h2>
             @endforelse
 
 
@@ -72,7 +72,7 @@
                         <div class="row">
                             <div class="col-lg-12">
                                 <h1 class="board-create-head">
-                                    ساختن یک بورد جدید
+                                    @lang('Build a new board')
                                 </h1>
                             </div>
                         </div>

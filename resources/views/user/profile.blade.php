@@ -15,7 +15,7 @@
                     </li>
                     <li role="presentation" @if($page=='setting') class="active" @endif>
                         <a href="{{ route('user.setting') }}"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span> {{ trans('board.Setting') }}</a>
-                    </li>	
+                    </li>
                 </ul>
             </div>
         </div>
@@ -24,11 +24,11 @@
                 <form action="" method="POST" role="form">
                 @csrf
                     <div class="form-group">
-                        <label for="">نام کاربری: </label>
+                        <label for="">@lang('admin.username'): </label>
                         <a href="#" data-type="text" class="input-editable editable-click" id="card_title_editable" style="text-transform: capitalize;">{{ Auth::user()->name }}</a>
                     </div>
                     <div class="form-group">
-                        <label for="">ایمیل: </label>
+                        <label for="">@lang('email'): </label>
                         <a href="#" data-type="text" class="input-editable editable-click" id="card_title_editable" style="text-transform: capitalize;">{{ Auth::user()->email }}</a>
                     </div>
                 </form>

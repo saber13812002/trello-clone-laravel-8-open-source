@@ -17,17 +17,30 @@
 
 You can install using the following way:
 
--   Clone the project git clone `git@github.com:saber13812002/trello-clone-laravel-7-taskulu-open-source.git`
--   Run `composer install` inside the directory composer install
--   Create database and run migrations `php artisan migrate`
--   change `app.php` in config folder locale to `en` or `fa` and also `fallback_locale`
--   change the `admin.php` config file in config folder default language to `en`
--   Run the server `php artisan serve`
--   Run `php artisan admin:create-user`
--   login into localhost:8000/admin
--   add 1- board 2- department 3- user into menu in admin panel
--   see details about log viewer in `log file` section in this page
--   add link in admin panel http://localhost:8000/admin/logs
+- Clone the project:
+```
+// using ssh
+git clone git@github.com:saber13812002/trello-clone-laravel-7-taskulu-open-source.git
+// or you can use https
+git clone https://github.com/saber13812002/trello-clone-laravel-8-open-source.git
+```
+- Run `composer install` inside the directory composer install
+- Copy `.env.example` to `.env` and modify DB_* as necessary for database connection.
+- Change `config/app.php` in config folder locale to `en` or `fa` and also `fallback_locale`
+- Change the `config/admin.php` config file in config folder default language to `en`
+- If running with https, change `config/admin.php` https setting `'https' => env('ADMIN_HTTPS',true),`
+- Create database and update `.env` with database host, database, user, and password
+- Run `php artisan key:generate`
+- Run `php artisan config:clear`
+- Run migrations `php artisan migrate`
+- Run the server `php artisan serve`
+- Run `php artisan admin:create-user`
+- Login into localhost:8000/admin
+- Add 1- board 2- department 3- user into menu in Admin->Menu panel
+  - Board: Title `Boards`, URI `boards`, all else default.
+  - Department: Title `Departments`, URI `departments`, all else default.
+- See details about log viewer in `log file` section in this page
+- Add link in admin panel http://localhost:8000/admin/logs
 
 ### create new card and set color to cards and tags
 

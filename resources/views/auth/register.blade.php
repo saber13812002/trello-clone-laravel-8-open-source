@@ -7,7 +7,7 @@
         <form role="form" method="POST" action="{{ url('/register') }}">
             @csrf
             <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                <label for="account-email" class="control-label"><span class="glyphicon glyphicon-envelope" aria-hidden="true" style="padding-right: 5px;"></span> ایمیل</label>
+                <label for="account-email" class="control-label"><span class="glyphicon glyphicon-envelope" aria-hidden="true" style="padding-right: 5px;"></span>@lang('email')</label>
                 <input id="account-email" type="email" class="form-control" name="email" value="{{ old('email') }}">
                 @if ($errors->has('email'))
                 <span class="help-block">
@@ -16,7 +16,7 @@
                 @endif
             </div>
             <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                <label for="user-name" class="control-label"><span class="glyphicon glyphicon-user" aria-hidden="true" style="padding-right: 5px;"></span> نام</label>
+                <label for="user-name" class="control-label"><span class="glyphicon glyphicon-user" aria-hidden="true" style="padding-right: 5px;"></span>@lang('admin.name')</label>
                 <input type="text" id="user-name" class="form-control" name="name" value="{{ old('name') }}">
                 @if ($errors->has('name'))
                 <span class="help-block">

@@ -65,6 +65,11 @@ return [
             'endpoint' => env('AWS_ENDPOINT'),
         ],
 
+	//for encore/laravel-admin
+        'admin' => [ 
+            'driver' => 'local', 
+            'root' => storage_path('app'),
+        ],
     ],
 
     /*
