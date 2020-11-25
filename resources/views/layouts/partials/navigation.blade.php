@@ -29,7 +29,7 @@
                 @csrf
                 <div class="form-group">
                     <select id="select-board">
-                        <option value="">انتخاب یک بورد...</option>
+                        <option value="">@lang('Select a baord')...</option>
                         @foreach($boards as $board)
                         @if(isset($boardDetail) && $board['id'] == $boardDetail['id'])
                         <option value="{{ $board['id'] }}" selected>{{ $board["boardTitle"] }}</option>
@@ -49,7 +49,7 @@
             <form class="navbar-form" role="searchUser" id="select-user-form">
                 @csrf
                 <div class="form-group selectize-control single rtl" id="boardAdminUserIdCon">
-                    <p><span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span> مدیر بورد</p>
+                    <p><span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span>@lang('Board Manager')</p>
                     <select name="boardAdminUserId2" id="boardAdminUserId2" class="selectize-input items not-full has-options" required="required">
                         @if(isset($users))
                         @foreach($users as $user)
@@ -65,7 +65,7 @@
                 <input type="text" id="board_id" value="{{isset($boardDetail)?$boardDetail['id']:''}}" style="display:none;" />
                 <input type="text" id="adminUserId" value="" style="display:none;" />
                 <div class="form-group">
-                    <button type="submit" class="btn btn-default" style="margin-bottom: 5px;">اعمال</button>
+                    <button type="submit" class="btn btn-default" style="margin-bottom: 5px;">@lang('Actions')</button>
                 </div>
             </form>
             @endif
@@ -76,7 +76,7 @@
                     <div class="panel-heading">
                         <a data-toggle="collapse" href="#starred-board">
                             <h3 class="panel-title" style="color: #393333;">
-                                بوردهای ستاره دار <span class="glyphicon glyphicon-star pull-right" aria-hidden="true"></span>
+                                @lang('Starred boards')<span class="glyphicon glyphicon-star pull-right" aria-hidden="true"></span>
                             </h3>
                         </a>
                     </div>
@@ -93,7 +93,7 @@
             </div>
         </li>
         <li style="padding-left: 15px; padding-right: 30px;">
-            <a data-toggle="modal" href="#create-new-board" style="color: #393333;"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> ساختن یک بورد جدید</a>
+            <a data-toggle="modal" href="#create-new-board" style="color: #393333;"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>@lang('Build a new board')</a>
         </li>
         <hr>
         <li style="padding-left: 15px; padding-right: 30px;">

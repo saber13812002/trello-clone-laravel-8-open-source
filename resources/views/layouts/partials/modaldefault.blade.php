@@ -3,13 +3,13 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title text-center">ساختن یک بورد جدید</h4>
+                <h4 class="modal-title text-center">@lang('Build a new board')</h4>
             </div>
             <div class="modal-body">
                 <form action="" method="POST" role="form" class="create-board-form">
                     @csrf
                     <div class="form-group" id="boardTitleCon">
-                        <label for="title" class="control-label">عنوان</label>
+                        <label for="title" class="control-label">Title - عنوان</label>
                         <input type="text" class="form-control" id="boardTitle" name="boardName">
                     </div>
                     <div class="form-group">
@@ -21,9 +21,9 @@
                     <div class="group-con frame" style="margin-top: 12px; max-height: 235px; overflow: scroll;"></div>
 
                     <div class="form-group" id="boardAdminUserIdCon">
-                        <p><span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span> مدیر بورد</p>
+                        <p><span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span>@lang('Board Manager')</p>
                         <select name="boardAdminUserId" id="boardAdminUserId" class="form-control" required="required">
-                            <option value="">انتخاب یک مدیر...</option>
+                            <option value="">@lang('Select a manager')...</option>
                             <option value="1">admin</option>
                         </select>
                     </div>
@@ -31,17 +31,17 @@
                     <div class="form-group" id="boardPrivacyTypeCon">
                         <p><span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span> این بورد خصوصی خواهد بود</p>
                         <select name="boardPrivacyType" id="boardPrivacyType" class="form-control" required="required">
-                            <option value="private">خصوصی</option>
-                            <option value="team">گروهی</option>
-                            <option value="public">عمومی</option>
+                            <option value="private">@lang('Private')</option>
+                            <option value="team">@lang('Group')</option>
+                            <option value="public">@lang('General')</option>
                         </select>
                     </div>
                 </form>
                 <!-- base_url:8000/postboard -->
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">بستن</button>
-                <button type="button" class="btn btn-primary" id="save-board">ذخیره تغییرات</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">@lang('admin.close')</button>
+                <button type="button" class="btn btn-primary" id="save-board">@lang('Save Changes')</button>
             </div>
         </div>
     </div>
@@ -61,7 +61,7 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">بستن</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">@lang('admin.close')</button>
             </div>
         </div>
     </div>
@@ -71,7 +71,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>ساختن گروه</h4>
+                <h4 class="modal-title"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>@lang('Build a group')</h4>
             </div>
             <div class="modal-body">
                 <div class="panel panel-default">
@@ -79,11 +79,11 @@
                         <form action="" method="POST" role="form" class="create-group-form">
                             @csrf
                             <div class="form-group">
-                                <label for="name">نام</label>
+                                <label for="name">@lang('admin.name')</label>
                                 <input type="text" class="form-control" name="name" id="group-name" required="required">
                             </div>
                             <div class="form-group">
-                                <label for="description">توضیحات</label>
+                                <label for="description">@lang('Description')</label>
                                 <textarea name="description" id="group-description" class="form-control" rows="3" required="required"></textarea>
                             </div>
                             <hr>
@@ -101,10 +101,10 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">بستن</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">@lang('admin.close')</button>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-primary" id="add-group">ساختن گروه</button>
+                <button type="button" class="btn btn-primary" id="add-group">@lang('Build a group')</button>
             </div>
         </div>
     </div>
@@ -114,32 +114,32 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title text-center">ویرایش پروفایل</h4>
+                <h4 class="modal-title text-center">@lang('Edit Profile')</h4>
             </div>
             <div class="modal-body">
                 <form action="" method="POST" role="form">
                     @csrf
                     <div class="form-group">
-                        <label for="title">نام کامل</label>
+                        <label for="title">@lang('Full Name')</label>
                         <input type="text" class="form-control" id="fullname">
                     </div>
                     <div class="form-group">
-                        <label for="title">نام کاربری</label>
+                        <label for="title">@lang('admin.username')</label>
                         <input type="text" class="form-control" id="username">
                     </div>
                     <div class="form-group">
-                        <label for="title">عنوان</label>
+                        <label for="title">@lang('admin.title')</label>
                         <input type="text" class="form-control" id="title">
                     </div>
                     <div class="form-group">
-                        <label for="title">بیوگرافی شما</label>
+                        <label for="title">@lang('Your biography')</label>
                         <textarea name="" id="input" class="form-control" rows="3" required="required"></textarea>
                     </div>
                 </form>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">انصراف</button>
-                <button type="button" class="btn btn-primary" id="save-change">ذخیره تغییرات</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">@lang('Cancel')</button>
+                <button type="button" class="btn btn-primary" id="save-change">@lang('Save Changes')</button>
             </div>
         </div>
     </div>
@@ -151,16 +151,16 @@
                 <div class="modal-header" style="border-bottom: none; padding-bottom: 0px !important;">
                     <ul class="nav nav-tabs" role="tablist">
                         <li role="presentation" class="active">
-                            <a href="#general" aria-controls="tab" role="tab" data-toggle="tab">عمومی</a>
+                            <a href="#general" aria-controls="tab" role="tab" data-toggle="tab">@lang('General')</a>
                         </li>
                         <li role="presentation">
-                            <a href="#date" aria-controls="tab" role="tab" data-toggle="tab">تاریخ</a>
+                            <a href="#date" aria-controls="tab" role="tab" data-toggle="tab">@lang('Date')</a>
                         </li>
                         <li role="presentation">
-                            <a href="#subtasks" aria-controls="tab" role="tab" data-toggle="tab">کارهای مرتبط و وابسته</a>
+                            <a href="#subtasks" aria-controls="tab" role="tab" data-toggle="tab">@lang('Related and affiliated tasks')</a>
                         </li>
                         <li role="presentation">
-                            <a href="#comments" aria-controls="tab" role="tab" data-toggle="tab">اظهار نظر ها</a>
+                            <a href="#comments" aria-controls="tab" role="tab" data-toggle="tab">@lang('Comments')</a>
                         </li>
                     </ul>
                 </div>
@@ -170,21 +170,21 @@
                             <form action="" method="POST" role="form">
                                 @csrf
                                 <div class="form-group">
-                                    <label for="">عنوان کار</label>
+                                    <label for="">@lang('Job Title')</label>
                                     <a href="#" data-type="text" class="input-editable editable-click" title="{{ trans('board.EnterCardTitle') }}" id="card_title_editable">{{ trans('board.Empty') }}</a>
                                 </div>
                                 <div class="form-group">
-                                    <label for="">توضیحات</label>
+                                    <label for="">@lang('Description')</label>
                                     <a href="#" data-type="textarea" class="input-editable editable-click" title="{{ trans('board.EnterCardDescription') }}" id="card_description_editable">{{ trans('board.Empty') }}</a>
                                 </div>
                                 <div class="form-group">
-                                    <label for="">برچسب</label>
+                                    <label for="">@lang('Tag')</label>
                                     <input type="text" id="card-tags-input">
                                 </div>
                                 <div class="form-group">
-                                    <label for="">رنگ</label>
+                                    <label for="">@lang('Color')</label>
                                     <select id="card_color">
-                                        <option value="">انتخاب رنگ...</option>
+                                        <option value="">@lang('Select a color')...</option>
                                         <option value="EB5A46">قرمز</option>
                                         <option value="C377E0">بنفش</option>
                                         <option value="0079BF">آبی</option>
@@ -254,7 +254,7 @@
                                             </div>
                                             <div class="col-lg-2">
                                                 <div class="form-group">
-                                                    <button class="btn btn-default" id="submit-comment">اعمال</button>
+                                                    <button class="btn btn-default" id="submit-comment">@lang('Actions')</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -272,8 +272,8 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default pull-right" data-dismiss="modal">بستن</button>
-                    <button type="button" class="btn btn-primary" id="save-change">ذخیره تغییرات</button>
+                    <button type="button" class="btn btn-default pull-right" data-dismiss="modal">@lang('admin.close')</button>
+                    <button type="button" class="btn btn-primary" id="save-change">@lang('Save Changes')</button>
                     <button type="button" class="btn btn-danger" id="delete-card"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> پاک کردن</button>
                 </div>
             </div>
