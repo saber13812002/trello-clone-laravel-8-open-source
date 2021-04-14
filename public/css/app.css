@@ -692,3 +692,7 @@ ul.commentList li {
 .popover {
     left: auto !important;
 }
+
+.modal{
+    z-index:2;
+}

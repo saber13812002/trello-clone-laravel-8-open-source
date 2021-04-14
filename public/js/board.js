@@ -849,12 +849,24 @@ $(document).ready(function () {
                     // cardAdminUserId updateCardownerid
                     var createdAt = data.card.created_at;
                     createdAt = that.formatDate(createdAt);
-                    var createdAtInput = $("#created-at").datetimepicker();
+
+                    var createdAtInput = $("#created-at").datepicker();
                     createdAtInput.val(createdAt).change();
 
                     var dueDate = data.card.due_date;
                     dueDate = that.formatDate(dueDate);
-                    var dueDateInput = $("#due-date").datetimepicker();
+
+                    var dueDateInput = $("#due-date").datepicker();
+
+                    $(".due-date").datepicker({
+                        //comment the beforeShow handler if you want to see the ugly overlay
+                        beforeShow: function () {
+                            setTimeout(function () {
+                                $(".ui-datepicker").css("z-index", 1051);
+                            }, 0);
+                        },
+                    });
+
                     dueDateInput.val(dueDate).change();
 
                     var taskList = "",
